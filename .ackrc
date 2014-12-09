@@ -1,0 +1,6 @@
+--ignore-file=match:/^[^.]*$/
+--ignore-file=ext:log
+--ignore-file=ext:sql
+--type-add=ruby=.haml,.rake
+--type-add=ruby=.erb
+--sort-files

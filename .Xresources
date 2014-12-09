@@ -1,0 +1,15 @@
+xterm*loginShell: true
+xterm*background: rgb:1d/1d/1d 
+xterm*foreground: rgb:f9/f9/f9
+xterm*faceName: Courier 10 Pitch 
+xterm*faceSize: 10
+xterm*boldMode: false
+xterm*scrollbar: false
+xterm*cursorBlink: true
+
+
+xclock*majorColor: rgb:9a/87/5f
+xclock*minorColor: rgb:9a/87/5f
+xclock*minuteColor: rgb:9a/87/5f
+xclock*hourColor: rgb:9a/87/5f
+xclock*secondColor: rgb:9a/87/5f

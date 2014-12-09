@@ -1,0 +1,10 @@
+Profile(name = "cordova",
+  format = ("tag"),
+
+  tags = {
+  "CordovaActivity": YELLOW,
+  "CordovaWebView": CYAN,
+  "CordovaLog": GREEN,
+  "CordovaWebViewClient": MAGENTA
+  }
+)
