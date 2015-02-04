@@ -1,0 +1,7 @@
+# Vim inspired controls
+key_move_song_up = 'K'
+key_move_song_down = 'J' 
+key_prev_column = 260 'h'
+key_next_column = 261 'l' 
+key_home = 262 'g'
+key_end = 360 'G'
