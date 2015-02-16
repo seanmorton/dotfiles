@@ -1,14 +1,15 @@
 # tools
-alias ack='ack-grep '
+alias ack="ack-grep "
+alias logcat="logcat-color "
 
 # rails
-alias bx='bundle exec '
-alias log='tail -f log/development.log '
+alias bx="bundle exec "
+alias log="tail -f log/development.log "
 
 # amaze
-alias such="git"
-alias very="git"
-alias many="git"
-alias much="git"
-alias so="git"
-alias wow="git status"
+alias such="git "
+alias very="git "
+alias many="git "
+alias much="git "
+alias so="git "
+alias wow="git status "
