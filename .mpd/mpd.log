@@ -15878,3 +15878,48 @@ Feb 04 00:21 : client: [61] closed
 Feb 04 00:21 : player: played "Tangerine Dream/Tangerine Tree - Vol. 1 - 46/Tangerine Dream - Tangerine Tree Vol. 42 Live New Haven Palace Theatre USA, 9th Sept 1988/7 - Livemiles 1.2.mp3"
 Feb 04 00:22 : avahi: Service 'Music Player' successfully established.
 Feb 04 00:22 : client: [0] opened from 127.0.0.1:58706
+Feb 04 00:23 : player: played "Tangerine Dream/Tangerine Tree - Vol. 1 - 46/Tangerine Dream - Tangerine Tree Vol. 42 Live New Haven Palace Theatre USA, 9th Sept 1988/7 - Livemiles 1.2.mp3"
+Feb 04 00:24 : client: [0] closed
+Feb 04 00:24 : client: [1] opened from 127.0.0.1:58743
+Feb 04 00:25 : player: played "Jerry Garcia/Jerry Garcia Band - 2001 - Shining Star/Jerry Garcia Band - 2001 - Shining Star, disc 1/Jerry Garcia - 01 - Shining Star.mp3"
+Feb 04 00:25 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: max_analyze_duration 5000000 reached
+Feb 04 00:26 : player: played "Arcade Fire/The Suburbs/05 Empty Room.m4a"
+Feb 04 00:26 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: max_analyze_duration 5000000 reached
+Feb 04 00:26 : player: played "Arcade Fire/The Suburbs/07 Half Light I.m4a"
+Feb 04 00:30 : player: played "Sufjan Stevens/The BQE/Sufjan Stevens - The BQE - 06 Movement III—Linear Tableau with Intersecting Surprise.mp3"
+Feb 04 00:30 : player: played "Ray Lynch/Deep Breakfast/07 - Pastorale _ Ray Lynch.mp3"
+Feb 04 00:35 : player: played "Ray Lynch/Deep Breakfast/02 - Oh of Pleasure.mp3"
+Feb 04 00:45 : player: played "Shankar, Ravi and Phillip Glass/Ravi Shankar and Phillip Glass - 1990 - Passages/Ravi Shankar & Phillip Glass - 01 - Offering.mp3"
+Feb 04 00:50 : player: played "Shankar, Ravi and Phillip Glass/Ravi Shankar and Phillip Glass - 1990 - Passages/Ravi Shankar & Phillip Glass - 02 - Sadhanipa.mp3"
+Feb 04 00:51 : player: played "Tangerine Dream/Zeit/01 - Birth of Liquid Plejades.mp3"
+Feb 04 00:51 : player: played "Tangerine Dream/Stratosfear/01 - Stratosfear (1995 - Remaster).mp3"
+Feb 04 01:23 : player: played "Tangerine Dream/Tangerine Tree - Vol. 47 -92/Tangerine Dream - Tangerine Tree Vol. 81 Live at The Brighton Dome 10.6.1976/01 - Part One.mp3"
+Feb 04 01:23 : client: [1] closed
+Feb 16 01:57 : avahi: Service 'Music Player' successfully established.
+Feb 16 01:57 : client: [0] opened from [::1]:36023
+Feb 16 01:57 : alsa_mixer: Failed to read mixer for 'default_chip': no such mixer control: PCM
+Feb 16 01:57 : client: [0] closed
+Feb 16 01:57 : client: [1] opened from [::1]:36024
+Feb 16 01:57 : output: Failed to open mixer for 'default_chip'
+Feb 16 02:01 : player: played "A Tribe Called Quest/A Tribe Called Quest - 1991 - The Low End Theory/A Tribe Called Quest - 02 - Buggin' Out.mp3"
+Feb 16 02:02 : client: [1] closed
+Feb 16 02:02 : avahi: Service 'Music Player' successfully established.
+Feb 16 02:02 : client: [0] opened from [::1]:36080
+Feb 16 02:03 : client: [1] opened from [::1]:36081
+Feb 16 02:03 : client: [1] closed
+Feb 16 02:04 : client: [2] opened from [::1]:36082
+Feb 16 02:04 : player: played "Allman Brothers Band/Idlewild South/Allman Brothers Band - 01 - Revival.mp3"
+Feb 16 02:04 : client: [2] closed
+Feb 16 02:04 : ffmpeg/mov,mp4,m4a,3gp,3g2,mj2: max_analyze_duration 5000000 reached
+Feb 16 02:05 : player: played "Broken Social Scene/Broken Social Scene/01 Our Faces Split the Coast In Half.m4a"
+Feb 16 02:05 : player: played "Buju Banton/Too Bad/01 - Your Night Tonight.mp3"
+Feb 16 02:05 : client: [3] opened from [::1]:36083
+Feb 16 02:05 : client: [3] closed
+Feb 16 02:08 : player: played "Chopin/Chopin_ Nocturnes/01 - Chopin_ Nocturne No.2 in E flat, Op.9 No.2.mp3"
+Feb 16 02:08 : client: [0] closed
+Feb 16 02:08 : client: [4] opened from [::1]:36136
+Feb 16 02:09 : player: played "Flume/Flume/06 - Stay Close.mp3"
+Feb 16 02:09 : player: played "Flume/Flume/02 - Holdin On.mp3"
+Feb 16 02:09 : player: played "Flume/Flume/03 - Left Alone feat. Chet Faker.mp3"
+Feb 16 02:09 : player: played "Flume/Flume/07 - Insane feat. Moon Holiday.mp3"
+Feb 16 02:09 : player: played "Flume/Flume/05 - On Top (feat. T.Shirt).mp3"
