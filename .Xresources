@@ -1,4 +1,3 @@
-xterm*loginShell: true
 xterm*background: rgb:1d/1d/1d 
 xterm*foreground: rgb:f9/f9/f9
 xterm*faceName: Courier 10 Pitch 
