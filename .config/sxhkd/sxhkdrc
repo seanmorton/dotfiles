@@ -83,7 +83,7 @@ super + @button{1-3}
 super + Return
   xterm	
 
-super + alt + Return
+super + ctrl + Return
   iceweasel
 
 super + space
