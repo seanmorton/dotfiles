@@ -21,13 +21,16 @@
     update_interval 4.0
     total_run_times 0
     double_buffer yes
+    own_window true 
+    own_window_type desktop
+    own_window_transparent true
     minimum_size 200 5
     maximum_width 220
     draw_shades no
     draw_outline no
     draw_borders no
     draw_graph_borders yes
-    default_color grey
+    default_color c5c8c6 
     default_shade_color red
     default_outline_color green
     alignment middle_right 
@@ -37,7 +40,7 @@
     uppercase no
     cpu_avg_samples 2
     override_utf8_locale no
-
+    
 TEXT
 ${alignc 43}${font Droid Sans:size=28}${time %H:%M:%S}${font}
 ${alignc}${time %a %d %b %Y}
@@ -52,6 +55,12 @@ ${font sans-serif:bold:size=8}PROCESSORS ${hr 2}
 ${font sans-serif:normal:size=8}${cpugraph cpu0 33ffff 0000ff}
 CPU1: ${cpu cpu1}% ${cpubar cpu1}
 CPU2: ${cpu cpu2}% ${cpubar cpu2}
+CPU3: ${cpu cpu3}% ${cpubar cpu3}
+CPU4: ${cpu cpu4}% ${cpubar cpu4}
+CPU5: ${cpu cpu5}% ${cpubar cpu5}
+CPU6: ${cpu cpu6}% ${cpubar cpu6}
+CPU7: ${cpu cpu7}% ${cpubar cpu7}
+CPU8: ${cpu cpu8}% ${cpubar cpu8}
 
 ${font sans-serif:bold:size=8}TOP PROCESSES ${hr 2}
 ${font sans-serif:normal:size=8}${top_mem name 1}${alignr}${top mem 1} %
@@ -67,6 +76,8 @@ $membar
 ${font sans-serif:bold:size=8}DISKS ${hr 2}
 ${font sans-serif:normal:size=8}/ $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
 ${fs_bar /}
+HOME $alignc ${fs_used /home} / ${fs_size /home} $alignr ${fs_used_perc /home}%
+${fs_bar /home}
 SWAP $alignc ${swap} / ${swapmax} $alignr ${swapperc}%
 ${swapbar}
 
@@ -75,10 +86,10 @@ ${font sans-serif:normal:size=8}$alignr${battery_percent}%
 ${battery_bar}
 
 ${font sans-serif:bold:size=8}NETWORK ${hr 2}
-${font sans-serif:normal:size=8}IP address: $alignr ${addr wlan0}
-ESSID: $alignr ${wireless_essid wlan0}
-Connection quality: $alignr ${wireless_link_qual_perc wlan0}%
-${downspeedgraph wlan0 99cc33 006600}
-DLS:${downspeed wlan0} kb/s $alignr total: ${totaldown wlan0}
-${upspeedgraph wlan0  ffcc00 ff0000}
-ULS:${upspeed wlan0} kb/s $alignr total: ${totalup wlan0}
+${font sans-serif:normal:size=8}IP address: $alignr ${addr eth0}
+ESSID: $alignr ${wireless_essid eth0}
+Connection quality: $alignr ${wireless_link_qual_perc eth0}%
+${downspeedgraph eth0 99cc33 006600}
+DLS:${downspeed eth0} kb/s $alignr total: ${totaldown eth0}
+${upspeedgraph eth0  ffcc00 ff0000}
+ULS:${upspeed eth0} kb/s $alignr total: ${totalup eth0}
