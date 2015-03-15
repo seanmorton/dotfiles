@@ -18,6 +18,7 @@ display_screens_numbers_on_start = "yes"
 ignore_leading_the = "yes"  
 lyrics_database = "1"  
 external_editor = "vim"
+clock_display_seconds = "yes"
 
 # Colors
 colors_enabled = "yes"  
