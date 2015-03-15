@@ -1,0 +1,68 @@
+Section "ServerLayout"
+	Identifier     "Nouveau DualHead"
+	Screen      0  "Screen0" 0 0
+  Screen      1  "Screen1" RightOf "Screen0" 
+	InputDevice    "Mouse0" "CorePointer"
+	InputDevice    "Keyboard0" "CoreKeyboard"
+EndSection
+
+Section "Files"
+	ModulePath   "/usr/lib/xorg/modules"
+	FontPath     "/usr/share/fonts/X11/misc"
+	FontPath     "/usr/share/fonts/X11/Type1"
+	FontPath     "built-ins"
+EndSection
+
+Section "Module"
+	Load  "glx"
+EndSection
+
+Section "InputDevice"
+	Identifier  "Keyboard0"
+	Driver      "kbd"
+EndSection
+
+Section "InputDevice"
+	Identifier  "Mouse0"
+	Driver      "mouse"
+	Option	    "Protocol" "auto"
+	Option	    "Device" "/dev/input/mice"
+	Option	    "ZAxisMapping" "4 5 6 7"
+EndSection
+
+Section "Monitor"
+  Identifier   "LVDS-1"
+  Option       "Ignore" "true"
+EndSection
+
+Section "Monitor"
+	Identifier   "DP-1"
+  Option       "Primary" "true"
+EndSection
+
+Section "Monitor"
+	Identifier   "VGA-1"
+  Option       "PreferredMode" "1920x1080_60.00"
+  Option       "RightOf" "DP-1"
+EndSection
+
+Section "Device"
+	Identifier  "Quadro"
+  Option      "Monitor-DP-1" "DP-1"
+  Option      "Monitor-VGA-1" "VGA-1"
+	Driver      "nouveau"
+	BusID       "PCI:1:0:0"
+EndSection
+
+Section "Screen"
+	Identifier "Screen0"
+	Device     "Quadro"
+	Monitor    "DP-1"
+EndSection
+
+Section "Screen"
+	Identifier "Screen1"
+	Device     "Quadro"
+	Monitor    "VGA-1"
+EndSection
+
