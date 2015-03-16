@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/megus/dev/rails/econnect'
+let g:netrw_dirhist_2='/home/megus/dev/rails/econnect/app/models'
+let g:netrw_dirhist_3='/home/megus/documents/Works/15th 2014-2015/fall_term/cs537'
+let g:netrw_dirhist_4='/home/megus/dev/rails/econnect/app/views/tip_sheets'
+let g:netrw_dirhist_5='/home/megus/dev/rails/econnect/app/views/login'
+let g:netrw_dirhist_6='/home/megus/dev/rails/econnect/app/models'

@@ -2,6 +2,7 @@ syntax on
 
 set background=dark
 set expandtab tabstop=2 shiftwidth=2
+set splitright
 set hlsearch
 
 if has("autocmd")
