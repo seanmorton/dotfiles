@@ -115,11 +115,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export JAVA_HOME="/usr/lib/jvm/jdk-8-oracle-x64/"
-export ANDROID_HOME="$HOME/dev/mobile/android-sdk-linux"
+# gitignore api
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="$PATH:$HOME/dev/mobile/android-sdk-linux/tools" 
-export PATH="$PATH:$HOME/dev/mobile/android-sdk-linux/platform-tools"
 
-export LD_LIBRARY_PATH="."
