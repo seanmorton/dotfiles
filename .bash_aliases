@@ -23,3 +23,8 @@ alias much="git"
 alias so="git"
 alias the="git"
 alias wow="git status"
+
+
+# worthless neat things 
+alias starwars="telnet towel.blinkenlights.nl"
+alias say="espeak -v en-scottish" 
