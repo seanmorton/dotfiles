@@ -1,6 +1,7 @@
 " Config
 set nocompatible      " Use vim rather than vi settings
 set autoread          " Reload externally edited files
+set pastetoggle=<F10> " Enable past insert mode with F10
 
 " Appearance
 syntax on             " Enable syntax highlighting
