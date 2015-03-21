@@ -2,7 +2,7 @@
 # big shoutout to github.com/easysid for the inspiration 
 
 # config
-bspc config border_width          2
+bspc config border_width          1
 bspc config window_gap            10 
 bspc config split_ratio           0.50
 bspc config borderless_monocle    true
@@ -28,7 +28,7 @@ bspc rule -a Screenkey manage=off
 
 # colors
 bspc config focused_border_color "#1d1f21"
-bspc config active_border_color "#1d1f21" 
+bspc config active_border_color "#1d1f21"
 bspc config normal_border_color "#1d1f21"
 bspc config focused_locked_border_color "#a54242"
 bspc config active_locked_border_color "#373b41"
@@ -42,6 +42,7 @@ compton --shadow-exclude '!focused' &
 nitrogen --restore
 conky &
 numlockx &
+unclutter &
 icedove &
 dropbox start &
 mpd &
