@@ -1,9 +1,8 @@
 #! /bin/sh
-# big shoutout to github.com/easysid for the inspiration 
 
 # config
 bspc config border_width          1
-bspc config window_gap            10 
+bspc config window_gap            10
 bspc config split_ratio           0.50
 bspc config borderless_monocle    true
 bspc config gapless_monocle       true
@@ -18,7 +17,7 @@ bspc desktop ^10 -t floating=on
 bspc config -m VGA-1 right_padding 220 # make room for conky
 
 # rules
-bspc rule -a Icedove desktop=^10 
+bspc rule -a Icedove desktop=^10
 bspc rule -a Gimp follow=on floating=on
 bspc rule -a caja floating=on
 bspc rule -a lxappearance floating=on center=true
