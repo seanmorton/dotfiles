@@ -29,10 +29,8 @@
     draw_shades no
     draw_outline no
     draw_borders no
-    draw_graph_borders yes
-    default_color c5c8c6
-    default_shade_color red
-    default_outline_color green
+    draw_graph_borders no
+    default_color 455a64
     alignment middle_right
     gap_x 10
     gap_y 5
@@ -43,7 +41,7 @@
 
 TEXT
 ${alignc 43}${font Droid Sans:size=28}${time %H:%M:%S}${font}
-${alignc}${time %a %d %b %Y}
+${alignc 5}${font Droid Sans:size=11}${time %a %d %b %Y}
 
 ${font sans-serif:bold:size=8}SYSTEM ${hr 2}
 ${font sans-serif:normal:size=8}$sysname $kernel $alignr $machine
@@ -52,15 +50,15 @@ Uptime:$alignr$uptime
 Temp: $alignr${hwmon 0 temp 1}${iconv_start UTF-8 ISO_8859-1}° ${iconv_stop}C
 
 ${font sans-serif:bold:size=8}PROCESSORS ${hr 2}
-${font sans-serif:normal:size=8}${cpugraph cpu0 33ffff 0000ff}
+${font sans-serif:normal:size=8}${cpugraph cpu0 }
 CPU1: ${cpu cpu1}% ${cpubar cpu1}
 CPU2: ${cpu cpu2}% ${cpubar cpu2}
 
 ${font sans-serif:normal:size=8}${top_mem name 1}${alignr}${top mem 1} %
 ${top_mem name 2}${alignr}${top mem 2} %
-$font${top_mem name 3}${alignr}${top mem 3} %
-$font${top_mem name 4}${alignr}${top mem 4} %
-$font${top_mem name 5}${alignr}${top mem 5} %
+${top_mem name 3}${alignr}${top mem 3} %
+${top_mem name 4}${alignr}${top mem 4} %
+${top_mem name 5}${alignr}${top mem 5} %
 
 ${font sans-serif:bold:size=8}MEMORY ${hr 2}
 ${font sans-serif:normal:size=8}RAM $alignc $mem / $memmax $alignr $memperc%
@@ -80,7 +78,7 @@ ${font sans-serif:bold:size=8}NETWORK ${hr 2}
 ${font sans-serif:normal:size=8}IP address: $alignr ${addr wlp1s0}
 ESSID: $alignr ${wireless_essid wlp1s0}
 Connection quality: $alignr ${wireless_link_qual_perc wlp1s0}%
-${downspeedgraph wlp1s0 99cc33 006600}
+${downspeedgraph wlp1s0}
 DLS:${downspeed wlp1s0} kb/s $alignr total: ${totaldown wlp1s0}
-${upspeedgraph wlp1s0  ffcc00 ff0000}
+${upspeedgraph wlp1s0}
 ULS:${upspeed wlp1s0} kb/s $alignr total: ${totalup wlp1s0}
