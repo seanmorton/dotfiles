@@ -21,7 +21,7 @@
     update_interval 1.0
     total_run_times 0
     double_buffer yes
-    own_window true 
+    own_window true
     own_window_type desktop
     own_window_transparent true
     minimum_size 200 5
@@ -29,18 +29,18 @@
     draw_shades no
     draw_outline no
     draw_borders no
-    draw_graph_borders yes
-    default_color c5c8c6 
+    draw_graph_borders no
+    default_color c5c8c6
     default_shade_color red
     default_outline_color green
-    alignment middle_right 
+    alignment middle_right
     gap_x 5
     gap_y 5
     no_buffers yes
     uppercase no
     cpu_avg_samples 2
     override_utf8_locale no
-    
+
 TEXT
 ${alignc 43}${font Droid Sans:size=28}${time %H:%M:%S}${font}
 ${alignc}${time %a %d %b %Y}
@@ -52,7 +52,7 @@ Uptime:$alignr$uptime
 Temp: $alignr${hwmon 0 temp 1}${iconv_start UTF-8 ISO_8859-1}° ${iconv_stop}C
 
 ${font sans-serif:bold:size=8}PROCESSORS ${hr 2}
-${font sans-serif:normal:size=8}${cpugraph cpu0 33ffff 0000ff}
+${font sans-serif:normal:size=8}${cpugraph cpu0}
 CPU1: ${cpu cpu1}% ${cpubar cpu1}
 CPU2: ${cpu cpu2}% ${cpubar cpu2}
 CPU3: ${cpu cpu3}% ${cpubar cpu3}
@@ -82,14 +82,14 @@ SWAP $alignc ${swap} / ${swapmax} $alignr ${swapperc}%
 ${swapbar}
 
 ${font sans-serif:bold:size=8}BATTERY${hr 2}
-${font sans-serif:normal:size=8}$alignr${battery_percent}%
+${font sans-serif:normal:size=8}${battery_time}$alignr${battery}
 ${battery_bar}
 
 ${font sans-serif:bold:size=8}NETWORK ${hr 2}
 ${font sans-serif:normal:size=8}IP address: $alignr ${addr eth0}
 ESSID: $alignr ${wireless_essid eth0}
 Connection quality: $alignr ${wireless_link_qual_perc eth0}%
-${downspeedgraph eth0 99cc33 006600}
+${downspeedgraph eth0}
 DLS:${downspeed eth0} kb/s $alignr total: ${totaldown eth0}
-${upspeedgraph eth0  ffcc00 ff0000}
+${upspeedgraph eth0}
 ULS:${upspeed eth0} kb/s $alignr total: ${totalup eth0}
