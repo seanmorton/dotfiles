@@ -1,8 +1,4 @@
-# Tools
-alias ack='ack-grep '
-alias cisco='/opt/cisco/anyconnect/bin/vpnui '
-
-# Rails
+# rails
 alias bx='bundle exec '
 alias log='tail -f log/development.log '
 
@@ -16,6 +12,8 @@ alias so="git"
 alias the="git"
 alias wow="git status"
 
+# tools
+alias pdfconv="libreoffice --headless --convert-to pdf"
 
 # worthless neat things
 alias starwars="telnet towel.blinkenlights.nl"
