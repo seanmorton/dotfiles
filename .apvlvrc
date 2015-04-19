@@ -1,0 +1,4 @@
+set content=no
+set continuous=yes
+set continouspad=10
+set autoscrolldoc=no
