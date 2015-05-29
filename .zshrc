@@ -2,7 +2,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # prompt
 autoload -U colors && colors
-PROMPT="%{$fg[yellow]%}% <%{$reset_color%}% %n%{$fg[yellow]%}% |%{$reset_color%}% %D{%H:%M:%S}%{$fg[yellow]%}% > %{$reset_color%}% %{$fg[green]%}% $ %{$reset_color%}%"
+PROMPT="%{$fg[yellow]%}% |%{$reset_color%}% %n%{$fg[yellow]%}% |%{$reset_color%}% %D{%H:%M:%S}%{$fg[yellow]%}% | %{$reset_color%}% %{$fg[green]%}% $ %{$reset_color%}%"
 
 bindkey -v
 bindkey '^r' history-incremental-search-backward
@@ -12,7 +12,7 @@ bindkey '^r' history-incremental-search-backward
 # rails
 alias bx='bundle exec '
 alias log='tail -f log/development.log '
-alias workers="rake workers:start && rake sidekiq:start"
+alias startworkers="rake workers:start && rake sidekiq:start"
 alias stopworkers="rake workers:killall && rake sidekiq:stop"
 
 # doge
