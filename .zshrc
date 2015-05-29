@@ -1,11 +1,15 @@
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-PROMPT="[%n|%D{%H:%M:%S}] $ "
+# prompt
+autoload -U colors && colors
+#PROMPT="%{$fg[yellow]%}%[%n|%D{%H:%M:%S}] %{$reset_color%}%$ "
+#PROMPT="[%n|%D{%H:%M:%S}] $ "
+PROMPT="%{$fg[yellow]%}% [%{$reset_color%}% %n%{$fg[yellow]%}% |%{$reset_color%}% %D{%H:%M:%S}%{$fg[yellow]%}% ] %{$reset_color%}% %{$fg[green]%}% $ %{$reset_color%}%"
 
 bindkey -v
-bindkey '^R' history-incremental-search-backward
+bindkey '^r' history-incremental-search-backward
 
-### Aliases ###
+### aliases ###
 
 # rails
 alias bx='bundle exec '
