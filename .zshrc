@@ -1,4 +1,5 @@
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export CLICOLOR=1
 
 # prompt
 autoload -U colors && colors
