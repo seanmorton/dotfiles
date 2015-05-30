@@ -2,7 +2,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # prompt
 autoload -U colors && colors
-PROMPT="%{$fg[yellow]%}% | %{$reset_color%}% %n%{$fg[yellow]%}%  | %{$reset_color%}% %D{%H:%M:%S}%{$fg[yellow]%}%  | %{$reset_color%}% %{$fg[green]%}% $ %{$reset_color%}%"
+PROMPT="%{$fg[yellow]%}% [%{$reset_color%}% %n%{$fg[yellow]%}% |%{$reset_color%}% %D{%H:%M:%S}%{$fg[yellow]%}% ] %{$reset_color%}% %{$fg[green]%}% $ %{$reset_color%}%"
 
 bindkey -v
 bindkey '^r' history-incremental-search-backward
