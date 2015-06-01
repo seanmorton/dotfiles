@@ -21,6 +21,9 @@ set softtabstop=2     " Use 2 columns when in insert mode
 set shiftwidth=2      " Use 2 columns for auto tab operations
 set expandtab         " Use spaces instead of tabs
 
+" Remappings
+nnoremap <CR> :noh<CR><CR>
+
 if has("autocmd")
 
     " Tab settings for Makefiles
@@ -43,14 +46,14 @@ if has("autocmd")
 
       " NERDTree file browser
       " https://github.com/scrooloose/nerdtree
-      map <C-l> :NERDTreeToggle<CR>
+      map <C-b> :NERDTreeToggle<CR>
       autocmd StdinReadPre * let s:std_in=1 "Open NERDtree if no file specified
       autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
       " Smooth Scroll
       " https://github.com/terryma/vim-smooth-scroll
-      noremap <silent> <c-k> :call smooth_scroll#up(5, 20, 1)<CR>
-      noremap <silent> <c-j> :call smooth_scroll#down(5, 20, 1)<CR>
+      noremap <silent> <c-k> :call smooth_scroll#up(4, 20, 1)<CR>
+      noremap <silent> <c-j> :call smooth_scroll#down(4, 20, 1)<CR>
 
 
 endif
