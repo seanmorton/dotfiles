@@ -32,7 +32,7 @@ if has("autocmd")
 
     " Remove trailing whitespace
     autocmd BufWritePre * :%s/\s\+$//e
-
+    autocmd BufWritePre * :%s/\s\+$//e
 
     " Pathogen plugin manager
     " https://github.com/tpope/vim-pathogen
@@ -43,17 +43,21 @@ if has("autocmd")
       let g:hybrid_use_Xresources = 1
       colorscheme hybrid
 
-
       " NERDTree file browser
       " https://github.com/scrooloose/nerdtree
       map <C-b> :NERDTreeToggle<CR>
-      autocmd StdinReadPre * let s:std_in=1 "Open NERDtree if no file specified
-      autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
       " Smooth Scroll
       " https://github.com/terryma/vim-smooth-scroll
       noremap <silent> <c-k> :call smooth_scroll#up(4, 20, 1)<CR>
       noremap <silent> <c-j> :call smooth_scroll#down(4, 20, 1)<CR>
 
+      " Taboo tab renaming
+      " https://github.com/gcmt/taboo.vim.git
+      set sessionoptions+=tabpages,globals
+
+      " Vim session management
+      " https://github.com/xolox/vim-session.git
+      let g:session_autosave = 'no'
 
 endif
