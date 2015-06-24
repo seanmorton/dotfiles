@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ -z "$1" ]
+  then
+    echo 'Error: no ticket number in arguments'
+    exit 1
+else
+  cd ~/termsync &&
+  git checkout master &&
+  git checkout -b ticket_"$1" &&
+  mux start ts "$1"
+fi

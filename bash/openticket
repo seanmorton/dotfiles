@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ -z "$1" ]
+  then
+    echo 'Error: no ticket number in arguments'
+    exit 1
+else
+  cd ~/termsync &&
+  git checkout ticket_"$1" &&
+  tmux a -t "$1"
+fi

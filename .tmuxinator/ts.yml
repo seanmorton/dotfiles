@@ -32,9 +32,8 @@ windows:
       layout: main-vertical
       panes:
         - clear; fortune | cowsay
-        - tmux clock-mode -t %3
+        - tail -f log/development.log
         - rails c
   - editor:
     - vim
     - ":OpenSession ts"
-  - logs: tail -f log/development.log
