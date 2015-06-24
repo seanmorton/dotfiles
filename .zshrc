@@ -1,4 +1,5 @@
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/bin" # Custom scripts
 export CLICOLOR=1
 
 # prompt
@@ -14,7 +15,8 @@ bindkey '^r' history-incremental-search-backward
 alias bx='bundle exec '
 alias log='tail -f log/development.log '
 alias startworkers="rake workers:start && rake sidekiq:start"
-alias stopworkers="rake workers:killall && rake sidekiq:stop"
+alias stopworkers="rake workers:killall workers:kill_zombies && rake sidekiq:quiet sidekiq:stop"
+alias ts="cd ~/termsync"
 
 # doge
 alias amaze="doge"
