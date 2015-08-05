@@ -1,5 +1,5 @@
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH="$PATH:$HOME/bin" # Custom scripts
+export PATH="$PATH:$HOME/scripts"
 export CLICOLOR=1
 
 # prompt
@@ -36,3 +36,5 @@ alias mergetool="vim `git diff --name-only | uniq`"
 # worthless neat things
 alias starwars="telnet towel.blinkenlights.nl"
 alias randocow="fortune | cowsay -f $(ls /usr/local/Cellar/cowsay/3.03/share/cows/ | gshuf -n1)"
+eval "$(thefuck-alias)"
+eval "$(thefuck-alias FUCK)"
