@@ -14,9 +14,10 @@ bindkey '^r' history-incremental-search-backward
 # rails
 alias bx='bundle exec '
 alias log='tail -f log/development.log '
-alias startworkers="rake workers:start && rake sidekiq:start"
-alias stopworkers="rake workers:killall workers:kill_zombies && rake sidekiq:quiet sidekiq:stop"
+alias startworkers="rake resque:start sidekiq:start"
+alias stopworkers="rake resque:stop sidekiq:quiet sidekiq:stop"
 alias ts="cd ~/termsync"
+alias tickets="tmux ls"
 
 # doge
 alias amaze="doge"
@@ -30,7 +31,8 @@ alias wow="git status"
 
 # tools
 alias pdfconv="libreoffice --headless --convert-to pdf"
+alias mergetool="vim `git diff --name-only | uniq`"
 
 # worthless neat things
 alias starwars="telnet towel.blinkenlights.nl"
-
+alias randocow="fortune | cowsay -f $(ls /usr/local/Cellar/cowsay/3.03/share/cows/ | gshuf -n1)"
