@@ -1,6 +1,4 @@
-
+set gui=none
+set gui=tabs
 noremap j 3j
 noremap k 3k
-
-:set gui=nonavigation
-
