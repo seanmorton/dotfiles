@@ -6,6 +6,7 @@ set pastetoggle=<F10> " Enable past insert mode with F10
 " Appearance
 syntax on             " Enable syntax highlighting
 set linebreak         " Wrap at convenient points
+set ruler             " Show row,column numbers
 
 " Searching
 set hlsearch          " Highlight search results
