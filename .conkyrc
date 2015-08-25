@@ -39,17 +39,17 @@
     no_buffers yes
     uppercase no
     cpu_avg_samples 2
-    override_utf8_locale no
+    override_utf8_locale yes
 
 TEXT
-${alignc 43}${font Droid Sans:size=28}${time %H:%M:%S}${font}
+${alignc}${font Droid Sans:size=28}${time %H:%M:%S}${font}
 ${alignc}${time %a %d %b %Y}
 
 ${font sans-serif:bold:size=8}SYSTEM ${hr 2}
 ${font sans-serif:normal:size=8}$sysname $kernel $alignr $machine
 Host:$alignr$nodename
 Uptime:$alignr$uptime
-Temp: $alignr${hwmon 0 temp 1}${iconv_start UTF-8 ISO_8859-1}° ${iconv_stop}C
+Temp: $alignr${hwmon 0 temp 1}°C
 
 ${font sans-serif:bold:size=8}PROCESSORS ${hr 2}
 ${font sans-serif:normal:size=8}${cpugraph cpu0}
@@ -86,10 +86,10 @@ ${font sans-serif:normal:size=8}${battery_time}$alignr${battery}
 ${battery_bar}
 
 ${font sans-serif:bold:size=8}NETWORK ${hr 2}
-${font sans-serif:normal:size=8}IP address: $alignr ${addr eth0}
-ESSID: $alignr ${wireless_essid eth0}
-Connection quality: $alignr ${wireless_link_qual_perc eth0}%
-${downspeedgraph eth0}
-DLS:${downspeed eth0} kb/s $alignr total: ${totaldown eth0}
-${upspeedgraph eth0}
-ULS:${upspeed eth0} kb/s $alignr total: ${totalup eth0}
+${font sans-serif:normal:size=8}IP address: $alignr ${addr wlp3s0}
+ESSID: $alignr ${wireless_essid wlp3s0}
+Connection quality: $alignr ${wireless_link_qual_perc wlp3s0}%
+${downspeedgraph wlp3s0}
+DLS:${downspeed wlp3s0} kb/s $alignr total: ${totaldown wlp3s0}
+${upspeedgraph wlp3s0}
+ULS:${upspeed wlp3s0} kb/s $alignr total: ${totalup wlp3s0}
