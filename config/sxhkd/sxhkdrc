@@ -77,20 +77,33 @@ super + @button{1-3}
 	bspc pointer -u
 
 #
-# wm independent hotkeys
+# applications
 #
 
 super + Return
   xterm
 
 super + backslash
-  iceweasel
+  firefox
 
 super + space
   gmrun
 
 ctrl + alt + l
   xscreensaver-command -lock
+
+#
+# media keys
+#
+
+XF86MonBrightness{Up,Down}
+  xbacklight {-inc, -dec} 10%
+
+XF86Audio{Raise,Lower}Volume
+  amixer set Master 5%{+,-}
+
+XF86AudioMute
+  amixer set Master toggle
 
 # make sxhkd reload its configuration files:
 super + Escape
