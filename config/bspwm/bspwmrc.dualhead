@@ -1,30 +1,25 @@
 #! /bin/sh
 
 # config
-bspc config border_width          1
-bspc config window_gap            5
-bspc config split_ratio           0.50
-bspc config borderless_monocle    true
-bspc config gapless_monocle       true
-bspc config focus_by_distance     true
-bspc config auto_cancel           true
+bspc config border_width        3
+bspc config window_gap          0
+bspc config split_ratio         0.70
+bspc config borderless_monocle  true
+bspc config gapless_monocle     true
+bspc config focus_by_distance   true
+bspc config auto_cancel         true
 
 # monitors & desktops
-bspc monitor VGA-1  -d VI VII VIII IX X
 bspc monitor DP-1 -d I II III IV V
+bspc monitor VGA-1 -d VI VII VIII IX X
 bspc desktop ^8 -t floating=on
 bspc desktop ^9 -t floating=on
 bspc desktop ^10 -t floating=on
-bspc config -m VGA-1 right_padding 220 # make room for conky
 
 # rules
-bspc rule -a Icedove desktop=^10
 bspc rule -a Gimp follow=on floating=on
-bspc rule -a caja floating=on
 bspc rule -a lxappearance floating=on center=true
 bspc rule -a nitrogen floating=on center=true
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
 
 # colors
 bspc config focused_border_color "#1d1f21"
@@ -38,11 +33,9 @@ bspc config presel_border_color "#de935f"
 
 # startup programs
 xscreensaver -no-splash &
-compton --shadow-exclude '!focused' &
+compton &
 nitrogen --restore
 conky &
 numlockx &
 unclutter &
-icedove &
 dropbox start &
-mpd &
