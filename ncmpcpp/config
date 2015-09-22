@@ -1,27 +1,25 @@
 # MPD
 mpd_host = "localhost"
 mpd_port = "6600"
-mpd_music_dir = "/home/megus/music/"  
-mpd_connection_timeout = "5"  
-mpd_crossfade_time = "5"  
+mpd_music_dir = "/home/megus/music/"
+mpd_connection_timeout = "5"
+mpd_crossfade_time = "5"
 
-# Options 
-startup_screen = "5"
-playlist_disable_highlight_delay = "0"  
-playlist_display_mode = "columns"  
-browser_display_mode = "columns"  
-incremental_seeking = "yes"  
-autocenter_mode = "yes"  
-header_visibility = "yes"  
-statusbar_visibility = "yes"  
-display_screens_numbers_on_start = "yes"  
-ignore_leading_the = "yes"  
-lyrics_database = "1"  
+# Options
+startup_screen "media_library"
+playlist_disable_highlight_delay = "0"
+playlist_display_mode = "columns"
+browser_display_mode = "columns"
+incremental_seeking = "yes"
+autocenter_mode = "yes"
+header_visibility = "yes"
+statusbar_visibility = "yes"
+ignore_leading_the = "yes"
 external_editor = "vim"
 clock_display_seconds = "yes"
 
 # Colors
-colors_enabled = "yes"  
+colors_enabled = "yes"
 empty_tag_color = "default"
 header_window_color = "green"
 volume_color = "cyan"
@@ -37,13 +35,12 @@ alternative_ui_separator_color = "default"
 active_column_color = "magenta"
 visualizer_color = "magenta"
 window_border_color = "yellow"
-active_window_border = "default"
-song_columns_list_format = "(10)[cyan]{l} (20)[magenta]{a} (30)[default]{b} (50)[green]{t}"  
+song_columns_list_format = "(10)[cyan]{l} (20)[magenta]{a} (30)[default]{b} (50)[green]{t}"
 
 # Visualizer
 visualizer_fifo_path = "/home/megus/.mpd/mpd.fifo"
 visualizer_output_name = "my_fifo"
-visualizer_sync_interval = "30" 
+visualizer_sync_interval = "30"
 visualizer_in_stereo = "yes"
 #visualizer_type = "wave" (spectrum/wave)
 visualizer_type = "spectrum" (spectrum/wave)
