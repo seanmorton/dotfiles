@@ -1,4 +1,3 @@
-set gui=none
-set gui=tabs
+set gui=nonavigation
 noremap j 3j
 noremap k 3k
