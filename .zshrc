@@ -1,5 +1,4 @@
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH="$PATH:$HOME/scripts"
+export PATH="$PATH:$HOME/bin"
 export CLICOLOR=1
 
 # prompt
@@ -14,10 +13,6 @@ bindkey '^r' history-incremental-search-backward
 # rails
 alias bx='bundle exec '
 alias log='tail -f log/development.log '
-alias startworkers="rake resque:start sidekiq:start"
-alias stopworkers="rake resque:stop sidekiq:quiet sidekiq:stop"
-alias ts="cd ~/termsync"
-alias tickets="tmux ls"
 
 # doge
 alias amaze="doge"
@@ -30,11 +25,7 @@ alias the="git"
 alias wow="git status"
 
 # tools
-alias pdfconv="libreoffice --headless --convert-to pdf"
 alias mergetool="vim `git diff --name-only | uniq`"
 
 # worthless neat things
 alias starwars="telnet towel.blinkenlights.nl"
-alias randocow="fortune | cowsay -f $(ls /usr/local/Cellar/cowsay/3.03/share/cows/ | gshuf -n1)"
-eval "$(thefuck-alias)"
-eval "$(thefuck-alias FUCK)"
