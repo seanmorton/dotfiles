@@ -1,0 +1,22 @@
+Section "InputClass"
+  Identifier "Touchpad"
+  MatchIsTouchpad "yes"
+  Driver "synaptics"
+  Option "VertEdgeScroll" "off"
+  Option "HorizEdgeScroll" "off"
+  Option "VertTwoFingerScroll" "on"
+  Option "HorizTwoFingerScroll" "on"
+  Option "VertScrollDelta" "-111"
+  Option "HorizScrollDelta" "-111"
+  Option "TapButton1" "0"
+EndSection
+Section "InputClass"
+  Identifier      "Trackpoint Wheel Emulation"
+  MatchProduct    "TPPS/2 IBM TrackPoint|DualPoint Stick|Synaptics Inc. Composite TouchPad /
+  MatchDevicePath "/dev/input/event*"
+  Option          "EmulateWheel"                "true"
+  Option          "EmulateWheelButton"  "2"
+  Option          "Emulate3Buttons"     "false"
+  Option          "XAxisMapping"                "6 7"
+  Option          "YAxisMapping"                "4 5"
+EndSection
