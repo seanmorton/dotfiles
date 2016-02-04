@@ -26,12 +26,17 @@ set shiftwidth=2      " Width for auto tab operations
 nnoremap <CR> :noh<CR><CR>
 
 " Tab spacing conversion
-function ConvertTabWidth(OrigWidth, NewWidth)
-  set ts=OrigWidth sts=OrigWidth noet
+function ConvertTabWidth(origWidth, newWidth)
+  let &ts=a:origWidth
+  let &sts=a:origWidth
+  set noet
   retab!
-  set ts=NewWidth sts=NewWidth et
+  let &ts=a:newWidth
+  let &sts=a:newWidth
+  set et
   retab
 endfunction
+
 command T call ConvertTabWidth(4,2)
 command F call ConvertTabWidth(2,4)
 
