@@ -17,48 +17,67 @@ set smartcase         " Unless capital letter specified
 set autoindent        " Indent to same level of previous line
 set smartindent       " Add indents to nested statements
 set smarttab          " Handle tabs at beginning of lines better
-set tabstop=2         " Tab = 2 columns
-set softtabstop=2     " Use 2 columns when in insert mode
-set shiftwidth=2      " Use 2 columns for auto tab operations
 set expandtab         " Use spaces instead of tabs
+set tabstop=2         " Width of a tab
+set softtabstop=2     " Width of tab when in insert mode
+set shiftwidth=2      " Width for auto tab operations
 
 " Remappings
 nnoremap <CR> :noh<CR><CR>
 
+" Tab spacing conversion
+function FourToTwoTabs()
+  set ts=4 sts=4 noet
+  retab!
+  set ts=2 sts=2 et
+  retab
+endfunction
+function TwoToFourTabs()
+  set ts=2 sts=2 noet
+  retab!
+  set ts=4 sts=4 et
+  retab
+endfunction
+command T call FourToTwoTabs()
+command F call TwoToFourTabs()
+
 if has("autocmd")
 
-    " Tab settings for Makefiles
-    autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
-    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  " Tab settings for Makefiles
+  autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-    " Remove trailing whitespace
-    autocmd BufWritePre * :%s/\s\+$//e
-    autocmd BufWritePre * :%s/\s\+$//e
+  " Remove trailing whitespace
+  autocmd BufWritePre * :%s/\s\+$//e
 
-    " Pathogen plugin manager
-    " https://github.com/tpope/vim-pathogen
-    execute pathogen#infect()
-
-      " Hybrid colorscheme
-      " https://github.com/w0ng/vim-hybrid
-      let g:hybrid_use_Xresources = 1
-      colorscheme hybrid
-
-      " NERDTree file browser
-      " https://github.com/scrooloose/nerdtree
-      map <C-b> :NERDTreeToggle<CR>
-
-      " Smooth Scroll
-      " https://github.com/terryma/vim-smooth-scroll
-      noremap <silent> <c-k> :call smooth_scroll#up(4, 20, 1)<CR>
-      noremap <silent> <c-j> :call smooth_scroll#down(4, 20, 1)<CR>
-
-      " Taboo tab renaming
-      " https://github.com/gcmt/taboo.vim.git
-      set sessionoptions+=tabpages,globals
-
-      " Vim session management
-      " https://github.com/xolox/vim-session.git
-      let g:session_autosave = 'no'
+  autocmd BufReadPost /home/megus/src/TimeServer/* call FourToTwoTabs()
+  autocmd BufWritePre /home/megus/src/TimeServer/* call TwoToFourTabs()
 
 endif
+
+" Pathogen plugin manager
+" https://github.com/tpope/vim-pathogen
+execute pathogen#infect()
+
+  " Hybrid colorscheme
+  " https://github.com/w0ng/vim-hybrid
+  let g:hybrid_use_Xresources = 1
+  colorscheme hybrid
+
+  " NERDTree file browser
+  " https://github.com/scrooloose/nerdtree
+  map <C-b> :NERDTreeToggle<CR>
+
+  " Smooth Scroll
+  " https://github.com/terryma/vim-smooth-scroll
+  noremap <silent> <c-k> :call smooth_scroll#up(4, 20, 1)<CR>
+  noremap <silent> <c-j> :call smooth_scroll#down(4, 20, 1)<CR>
+
+  " Taboo tab renaming
+  " https://github.com/gcmt/taboo.vim.git
+  set sessionoptions+=tabpages,globals
+
+  " Vim session management
+  " https://github.com/xolox/vim-session.git
+  let g:session_autosave = 'no'
+
