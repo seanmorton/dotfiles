@@ -26,20 +26,14 @@ set shiftwidth=2      " Width for auto tab operations
 nnoremap <CR> :noh<CR><CR>
 
 " Tab spacing conversion
-function FourToTwoTabs()
-  set ts=4 sts=4 noet
+function ConvertTabWidth(OrigWidth, NewWidth)
+  set ts=OrigWidth sts=OrigWidth noet
   retab!
-  set ts=2 sts=2 et
+  set ts=NewWidth sts=NewWidth et
   retab
 endfunction
-function TwoToFourTabs()
-  set ts=2 sts=2 noet
-  retab!
-  set ts=4 sts=4 et
-  retab
-endfunction
-command T call FourToTwoTabs()
-command F call TwoToFourTabs()
+command T call ConvertTabWidth(4,2)
+command F call ConvertTabWidth(2,4)
 
 if has("autocmd")
 
@@ -49,9 +43,6 @@ if has("autocmd")
 
   " Remove trailing whitespace
   autocmd BufWritePre * :%s/\s\+$//e
-
-  autocmd BufReadPost /home/megus/src/TimeServer/* call FourToTwoTabs()
-  autocmd BufWritePre /home/megus/src/TimeServer/* call TwoToFourTabs()
 
 endif
 
@@ -70,8 +61,8 @@ execute pathogen#infect()
 
   " Smooth Scroll
   " https://github.com/terryma/vim-smooth-scroll
-  noremap <silent> <c-k> :call smooth_scroll#up(4, 20, 1)<CR>
-  noremap <silent> <c-j> :call smooth_scroll#down(4, 20, 1)<CR>
+  noremap <silent> <c-k> :call smooth_scroll#up(orig_width, 20, 1)<CR>
+  noremap <silent> <c-j> :call smooth_scroll#down(orig_width, 20, 1)<CR>
 
   " Taboo tab renaming
   " https://github.com/gcmt/taboo.vim.git
