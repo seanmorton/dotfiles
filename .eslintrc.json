@@ -1,0 +1,29 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jasmine": true,
+        "jquery": true
+    },
+    "globals": {
+        "angular": false,
+        "_": false
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "rules": {
+        "semi": [ "error", "always" ],
+        "block-scoped-var": [ "error" ],
+        "no-alert": [ "warn" ],
+        "no-fallthrough": [ "warn" ],
+        "no-global-assign": [ "error" ],
+        "no-unused-vars": [ "warn" ],
+        "no-shadow": [ "warn" ],
+        "no-use-before-define": [ "warn" ],
+        "camelcase": [ "warn" ],
+        "linebreak-style": [ "warn", "unix" ],
+        "no-multiple-empty-lines": [ "warn" ]
+    }
+}
