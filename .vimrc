@@ -1,9 +1,10 @@
 " Config
-set nocompatible      " Use vim rather than vi settings
-set autoread          " Reload externally edited files
-set pastetoggle=<F10> " Enable past insert mode with F10
-set encoding=utf-8    " For the wurldz
-set scrolloff=5       " Display at least 5 lines above and below the cursor
+set nocompatible            " Use vim rather than vi settings
+set autoread                " Reload externally edited files
+set pastetoggle=<F10>       " Enable past insert mode with F10
+set encoding=utf-8          " For the wurldz
+set scrolloff=5             " Display at least 5 lines above and below the cursor
+set spell spelllang=en_us   " Enable spell checking for English 
 
 " Appearance
 syntax on             " Enable syntax highlighting
