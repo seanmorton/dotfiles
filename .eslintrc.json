@@ -1,29 +1,31 @@
 {
+    "globals": {
+        "angular": false,
+        "mixpanel": false,
+        "moment": false,
+        "_": false
+    },
     "env": {
         "browser": true,
         "es6": true,
         "jasmine": true,
         "jquery": true
     },
-    "globals": {
-        "angular": false,
-        "_": false
-    },
     "extends": "eslint:recommended",
-    "parserOptions": {
-        "sourceType": "module"
-    },
     "rules": {
-        "semi": [ "error", "always" ],
-        "block-scoped-var": [ "error" ],
-        "no-alert": [ "warn" ],
-        "no-fallthrough": [ "warn" ],
-        "no-global-assign": [ "error" ],
-        "no-unused-vars": [ "warn" ],
-        "no-shadow": [ "warn" ],
-        "no-use-before-define": [ "warn" ],
-        "camelcase": [ "warn" ],
-        "linebreak-style": [ "warn", "unix" ],
-        "no-multiple-empty-lines": [ "warn" ]
+        "semi": ["error","always"],
+        "no-undefined": "warn",
+        "no-unused-vars": "warn",
+        "no-empty": "warn",
+        "no-redeclare": "warn",
+        "camelcase": "warn",
+        "linebreak-style": ["warn", "unix"],
+        "no-use-before-define": "warn",
+        "no-multiple-empty-lines": "warn",
+        "no-shadow": "warn",
+        "no-global-assign": "error",
+        "no-fallthrough": "warn",
+        "block-scoped-var": "error",
+        "no-alert": "warn"
     }
 }
