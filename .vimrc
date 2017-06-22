@@ -22,26 +22,19 @@ set autoindent        " Indent to same level of previous line
 set smartindent       " Add indents to nested statements
 set smarttab          " Handle tabs at beginning of lines better
 set expandtab         " Use spaces instead of tabs
-set tabstop=4         " Width of a tab
-set softtabstop=4     " Width of tab when in insert mode
-set shiftwidth=4      " Width for auto tab operations
+set tabstop=2         " Width of a tab
+set softtabstop=2     " Width of tab when in insert mode
+set shiftwidth=2      " Width for auto tab operations
 
 set t_ut=             " Disable background color erase for tmux/screen
 
-" Folding
-set foldenable
-set foldmethod=indent
-set foldlevelstart=2
-set foldnestmax=2
-
-
 " Remappings
 nnoremap <CR> :noh<CR><CR> 
-nnoremap <Space> za
 map Y y$
 
 " [ctags] open definition vertical split
 map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>  
+set tags+=gems.tags
 
 colorscheme Tomorrow-Night-Eighties
 
@@ -52,7 +45,7 @@ if has("autocmd")
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
   " Remove trailing whitespace
-  " autocmd BufWritePre * :%s/\s\+$//e
+  autocmd BufWritePre * :%s/\s\+$//e
 
 endif
 
@@ -62,11 +55,18 @@ function! s:PrettyJSON()
 endfunction
 command! PrettyJSON :call <sid>PrettyJSON()
 
-" CtrlP
-  set runtimepath^=~/.vim/bundle/ctrlp.vim
-  let g:ctrlp_map = '<c-p>'
-  let g:cntrlp_working_path_mode = 'ra'
-  set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+" Multipurpose tab key
+" Indent if we're at the beginning of a line. Else, do completion.
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-n>
 
 " Pathogen plugin manager
 " https://github.com/tpope/vim-pathogen
@@ -90,10 +90,10 @@ execute pathogen#infect()
   noremap <silent> <c-k> :call smooth_scroll#up(10, 5, 1)<CR>
   noremap <silent> <c-j> :call smooth_scroll#down(10, 5, 1)<CR>
 
-  " Taboo tab renaming
-  " https://github.com/gcmt/taboo.vim.git
-  set sessionoptions+=tabpages,globals
+  " CmdT
+  let g:CommandT='<C-Space>'
+  let g:CommandTAcceptSelectionSplitMap='<C-x>'
 
-  " Vim session management
-  " https://github.com/xolox/vim-session.git
-  let g:session_autosave = 'no'
+  " Ack
+  cnoreabbrev Ack Ack!
+  nnoremap <Leader>a :Ack!<Space>
