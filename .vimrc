@@ -1,52 +1,51 @@
 " Config
-set nocompatible            " Use vim rather than vi settings
-set autoread                " Reload externally edited files
-set pastetoggle=<F10>       " Enable past insert mode with F10
-set encoding=utf-8          " For the wurldz
-set scrolloff=5             " Display at least 5 lines above and below the cursor
-set spell spelllang=en_us   " Enable spell checking for English 
+set nocompatible                    " Use vim rather than vi settings
+set autoread                        " Reload externally edited files
+set pastetoggle=<F10>               " Enable past insert mode with F10
+set encoding=utf-8                  " For the wurldz
+set scrolloff=5                     " Display at least 5 lines above and below the cursor
+set t_ut=                           " Disable background color erase for tmux/screen
+" set spell spelllang=en_us         " Enable spell checking for English
 
 " Appearance
-syntax on             " Enable syntax highlighting
-set linebreak         " Wrap at convenient points
-set ruler             " Show row,column numbers
-set number            " Line numbers
+syntax on                           " Enable syntax highlighting
+set linebreak                       " Wrap at convenient points
+set ruler                           " Show row,column numbers
+set number                          " Line numbers
 
 " Searching
-set hlsearch          " Highlight search results
-set ignorecase        " Ignore case while searching
-set smartcase         " Unless capital letter specified
+set hlsearch                        " Highlight search results
+set ignorecase                      " Ignore case while searching
+set smartcase                       " Unless capital letter specified
+set wildignore+=*/node_modules/*    " Files to ignore in results
 
 " Indentation
-set autoindent        " Indent to same level of previous line
-set smartindent       " Add indents to nested statements
-set smarttab          " Handle tabs at beginning of lines better
-set expandtab         " Use spaces instead of tabs
-set tabstop=2         " Width of a tab
-set softtabstop=2     " Width of tab when in insert mode
-set shiftwidth=2      " Width for auto tab operations
-
-set t_ut=             " Disable background color erase for tmux/screen
+set autoindent                      " Indent to same level of previous line
+set smartindent                     " Add indents to nested statements
+set smarttab                        " Handle tabs at beginning of lines better
+set expandtab                       " Use spaces instead of tabs
+set tabstop=2                       " Width of a tab
+set softtabstop=2                   " Width of tab when in insert mode
+set shiftwidth=2                    " Width for auto tab operations
 
 " Remappings
-nnoremap <CR> :noh<CR><CR> 
+nnoremap <CR> :noh<CR><CR>
+noremap <Leader>n :set invnumber<CR>
 map Y y$
 
 " [ctags] open definition vertical split
-map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>  
+map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 set tags+=gems.tags
 
 colorscheme Tomorrow-Night-Eighties
 
 if has("autocmd")
-
   " Tab settings for Makefiles
   autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
   " Remove trailing whitespace
   autocmd BufWritePre * :%s/\s\+$//e
-
 endif
 
 function! s:PrettyJSON()
@@ -71,19 +70,15 @@ inoremap <s-tab> <c-n>
 " Pathogen plugin manager
 " https://github.com/tpope/vim-pathogen
 execute pathogen#infect()
-
   " NERDTree file browser
   " https://github.com/scrooloose/nerdtree
   map <C-b> :NERDTreeToggle<CR>
 
-  " Syntastic syntax checker
-  set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
-  let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_wq = 1
-  let g:syntastic_auto_jump = 1
-  let g:syntastic_javascript_checkers = ["eslint"]
+  " ALE linter
+  let g:ale_lint_on_text_changed = 'never'
+  noremap <Leader>s :ALEToggle<CR>
+  let g:ale_sign_error='xx'
+  let g:ale_sign_warning='!!'
 
   " Smooth Scroll
   " https://github.com/terryma/vim-smooth-scroll
@@ -93,7 +88,24 @@ execute pathogen#infect()
   " CmdT
   let g:CommandT='<C-Space>'
   let g:CommandTAcceptSelectionSplitMap='<C-x>'
+  command CommandTAcceptSelectionSplitCommand sp
+  command CommandTAcceptSelectionVSplitCommand vs
 
-  " Ack
+  " Ack (using ag)
   cnoreabbrev Ack Ack!
   nnoremap <Leader>a :Ack!<Space>
+  if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+  endif
+  let g:ackhighlight = 1
+  let g:ack_autoclose = 1
+
+  " rspec-vim
+  noremap <Leader>r :call RunNearestSpec()<CR>
+  noremap <Leader>e :call RunLastSpec()<CR>
+  noremap <Leader>w :call RunCurrentSpecFile()<CR>
+  let g:rspec_command = "Dispatch bin/rspec -fd {spec}"
+
+  " fugitive
+  noremap <Leader>g :Gblame<CR>
+  noremap <Leader>G :Gedit<CR>
