@@ -64,8 +64,14 @@ function! InsertTabWrapper()
         return "\<c-p>"
     endif
 endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <tab> <c-r>=InsertTabWrapper()<CR>
 inoremap <s-tab> <c-n>
+
+function OpenCommitHashUnderCursor()
+  let l:CommitHash = expand("<cword>")
+  execute "Dispatch open-commit " . l:CommitHash
+endfunction
+noremap <Leader>c :call OpenCommitHashUnderCursor()<CR>
 
 " Pathogen plugin manager
 " https://github.com/tpope/vim-pathogen
@@ -77,6 +83,8 @@ execute pathogen#infect()
   " ALE linter
   let g:ale_lint_on_text_changed = 'never'
   noremap <Leader>s :ALEToggle<CR>
+  noremap <Leader>j :ALENext<CR>
+  noremap <Leader>k :ALEPrevious<CR>
   let g:ale_sign_error='xx'
   let g:ale_sign_warning='!!'
 
