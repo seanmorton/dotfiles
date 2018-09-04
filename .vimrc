@@ -5,7 +5,6 @@ set pastetoggle=<F10>               " Enable past insert mode with F10
 set encoding=utf-8                  " For the wurldz
 set scrolloff=5                     " Display at least 5 lines above and below the cursor
 set t_ut=                           " Disable background color erase for tmux/screen
-" set spell spelllang=en_us         " Enable spell checking for English
 
 " Appearance
 syntax on                           " Enable syntax highlighting
@@ -17,7 +16,6 @@ set number                          " Line numbers
 set hlsearch                        " Highlight search results
 set ignorecase                      " Ignore case while searching
 set smartcase                       " Unless capital letter specified
-set wildignore+=*/node_modules/*    " Files to ignore in results
 
 " Indentation
 set autoindent                      " Indent to same level of previous line
@@ -47,12 +45,6 @@ if has("autocmd")
   " Remove trailing whitespace
   autocmd BufWritePre * :%s/\s\+$//e
 endif
-
-function! s:PrettyJSON()
-  %!jq .
-    set filetype=json
-endfunction
-command! PrettyJSON :call <sid>PrettyJSON()
 
 " Multipurpose tab key
 " Indent if we're at the beginning of a line. Else, do completion.
@@ -88,10 +80,11 @@ execute pathogen#infect()
   let g:ale_sign_error='xx'
   let g:ale_sign_warning='!!'
 
-  " Smooth Scroll
-  " https://github.com/terryma/vim-smooth-scroll
-  noremap <silent> <c-k> :call smooth_scroll#up(10, 5, 1)<CR>
-  noremap <silent> <c-j> :call smooth_scroll#down(10, 5, 1)<CR>
+  " comfortable-motion (smooth scroll)
+  let g:comfortable_motion_no_default_key_mappings = 1
+  let g:comfortable_motion_impulse_multiplier = 1
+  nnoremap <silent> <C-j> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
+  nnoremap <silent> <C-k> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
 
   " CmdT
   let g:CommandT='<C-Space>'
