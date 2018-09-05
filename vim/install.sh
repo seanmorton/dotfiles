@@ -13,10 +13,8 @@ git clone https://github.com/craigemery/vim-autotag.git
 git clone https://github.com/tpope/vim-dispatch.git
 git clone https://github.com/tpope/vim-fugitive.git
 git clone https://github.com/thoughtbot/vim-rspec.git
+git clone https://github.com/seanmorton/vim-tomorrow-night-eighties.git
 git clone https://github.com/othree/yajs.vim.git
-
-echo 'Installing Vim colors'
-mkdir ~/.vim/colors && cp ./colors/* ~/.vim/colors
 
 echo 'Compiling command-t..'
 cd command-t/ruby/command-t/ext/command-t
