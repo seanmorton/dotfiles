@@ -35,8 +35,6 @@ map Y y$
 map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 set tags+=gems.tags
 
-colorscheme Tomorrow-Night-Eighties
-
 if has("autocmd")
   " Tab settings for Makefiles
   autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
@@ -68,6 +66,8 @@ noremap <Leader>c :call OpenCommitHashUnderCursor()<CR>
 " Pathogen plugin manager
 " https://github.com/tpope/vim-pathogen
 execute pathogen#infect()
+  colorscheme Tomorrow-Night-Eighties
+
   " NERDTree file browser
   " https://github.com/scrooloose/nerdtree
   map <C-b> :NERDTreeToggle<CR>
