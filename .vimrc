@@ -83,8 +83,8 @@ execute pathogen#infect()
   " comfortable-motion (smooth scroll)
   let g:comfortable_motion_no_default_key_mappings = 1
   let g:comfortable_motion_impulse_multiplier = 1
-  nnoremap <silent> <C-j> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
-  nnoremap <silent> <C-k> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
+  nnoremap <silent> <C-j> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0))<CR>
+  nnoremap <silent> <C-k> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * -1 * winheight(0))<CR>
 
   " CmdT
   let g:CommandT='<C-Space>'
