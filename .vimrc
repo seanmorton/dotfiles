@@ -10,7 +10,7 @@ set t_ut=                           " Disable background color erase for tmux/sc
 syntax on                           " Enable syntax highlighting
 set linebreak                       " Wrap at convenient points
 set ruler                           " Show row,column numbers
-set number                          " Line numbers
+set number relativenumber           " 'Hybrid' line numbers
 
 " Searching
 set hlsearch                        " Highlight search results
@@ -82,7 +82,7 @@ execute pathogen#infect()
 
   " comfortable-motion (smooth scroll)
   let g:comfortable_motion_no_default_key_mappings = 1
-  let g:comfortable_motion_impulse_multiplier = 1
+  let g:comfortable_motion_impulse_multiplier = 1.5
   nnoremap <silent> <C-j> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0))<CR>
   nnoremap <silent> <C-k> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * -1 * winheight(0))<CR>
 
