@@ -26,9 +26,23 @@ set tabstop=2                       " Width of a tab
 set softtabstop=2                   " Width of tab when in insert mode
 set shiftwidth=2                    " Width for auto tab operations
 
+" Configure FZF
+set rtp+=/usr/local/opt/fzf
+let g:fzf_layout = { 'down': '20%' }
+let g:fzf_colors =
+  \ { 'hl':       ['fg', 'fzfHighlight'],
+    \ 'hl+':      ['fg', 'fzfHighlight'],
+    \ 'fg+':      ['fg', 'fzfCurrLine'],
+    \ 'bg+':      ['bg', 'fzfCurrLine'],
+    \ 'pointer':  ['fg', 'fzfPointer'],
+    \ 'spinner':  ['fg', 'fzfSpinner'],
+    \ 'info':     ['fg', 'fzfInfo'],
+    \ 'prompt':   ['fg', 'fzfPrompt'] }
+
 " Remappings
 nnoremap <CR> :noh<CR><CR>
 noremap <Leader>n :set invnumber<CR>
+noremap <Leader>t :FZF<CR>
 map Y y$
 
 " [ctags] open definition vertical split
@@ -85,12 +99,6 @@ execute pathogen#infect()
   let g:comfortable_motion_impulse_multiplier = 1.5
   nnoremap <silent> <C-j> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0))<CR>
   nnoremap <silent> <C-k> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * -1 * winheight(0))<CR>
-
-  " CmdT
-  let g:CommandT='<C-Space>'
-  let g:CommandTAcceptSelectionSplitMap='<C-x>'
-  command CommandTAcceptSelectionSplitCommand sp
-  command CommandTAcceptSelectionVSplitCommand vs
 
   " Ack (using ag)
   cnoreabbrev Ack Ack!
