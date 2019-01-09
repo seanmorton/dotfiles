@@ -1,0 +1,10 @@
+set number relativenumber
+set hlsearch
+set ignorecase
+set smartcase
+
+map Y y$
+nnoremap <CR> :noh<CR>
+nnoremap <Leader>g :action Annotate<CR>
+nnoremap <Leader>t :action GotoClass<CR>
+nnoremap <Leader>a :action FindInPath<CR>
