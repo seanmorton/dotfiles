@@ -1,10 +1,16 @@
-set number relativenumber
-set hlsearch
-set ignorecase
-set smartcase
+" Appearance
+set number relativenumber           " 'Hybrid' line numbers
 
+" Searching
+set hlsearch                        " Highlight search results
+set ignorecase                      " Ignore case while searching
+set smartcase                       " Unless capital letter specified
+
+" Remappings
 map Y y$
 nnoremap <CR> :noh<CR>
 nnoremap <Leader>g :action Annotate<CR>
 nnoremap <Leader>t :action GotoClass<CR>
 nnoremap <Leader>a :action FindInPath<CR>
+nnoremap <Leader>u :action FindUsages<CR>
+nnoremap <Leader>i :action GotoImplementation<CR>
