@@ -36,11 +36,13 @@ alias the="git"
 alias wow="git status"
 
 # git
-alias pwnbranches="git checkout master && git branch | grep -v 'master' | xargs git branch -D"
+alias pwnbranches="git branch --merged >/tmp/merged-branches && vim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
+alias pwncloudbranches="git branch --merged >/tmp/merged-branches && vim /tmp/merged-branches && xargs git push -delete origin </tmp/merged-branches"
 
 # shortcuts
-alias fb="cd ~/src/flatbook"
-alias al="cd ~/src/archipelago/react-native/aloha"
+alias pl="cd ~/src/platform-bazel"
+alias wa="cd ~/src/webapp-on-boarding"
+alias ll="ls -l"
 
 # git completion and current branch in right prompt
 autoload -Uz compinit && compinit
