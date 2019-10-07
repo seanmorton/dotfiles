@@ -37,11 +37,9 @@ alias wow="git status"
 
 # git
 alias pwnbranches="git branch --merged >/tmp/merged-branches && vim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
-alias pwncloudbranches="git branch --merged >/tmp/merged-branches && vim /tmp/merged-branches && xargs git push -delete origin </tmp/merged-branches"
+alias pwncloudbranches="git branch --merged >/tmp/merged-branches && vim /tmp/merged-branches && xargs git push --delete origin </tmp/merged-branches"
 
 # shortcuts
-alias pl="cd ~/src/platform-bazel"
-alias wa="cd ~/src/webapp-on-boarding"
 alias ll="ls -l"
 
 # git completion and current branch in right prompt
