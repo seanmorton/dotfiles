@@ -80,6 +80,7 @@ noremap <Leader>c :call OpenCommitHashUnderCursor()<CR>
 " Pathogen plugin manager
 " https://github.com/tpope/vim-pathogen
 execute pathogen#infect()
+  filetype plugin on
   colorscheme Tomorrow-Night-Eighties
 
   " NERDTree file browser
