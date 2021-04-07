@@ -56,6 +56,9 @@ if has("autocmd")
 
   " Remove trailing whitespace
   autocmd BufWritePre * :%s/\s\+$//e
+
+  " Always start on the first line of commit files
+  autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
 endif
 
 " Multipurpose tab key

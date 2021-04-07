@@ -7,25 +7,14 @@ export XDG_CONFIG_HOME=/Users/seanmorton/.config
 # prompt
 autoload -U colors && colors
 #PROMPT="%{$fg[yellow]%}% [%{$reset_color%}% %m%{$fg[yellow]%}% |%{$reset_color%}% %D{%H:%M:%S}%{$fg[yellow]%}% ] %{$reset_color%}% %{$fg[green]%}% $ %{$reset_color%}%"
-PROMPT="%{$fg[magenta]%}% [%{$reset_color%}% %m%{$fg[magenta]%}% |%{$reset_color%}% %D{%H:%M:%S}%{$fg[magenta]%}% ] %{$reset_color%}% %{$fg[cyan]%}% $ %{$reset_color%}%"
+PROMPT="%{$fg[magenta]%}% [%{$reset_color%}% tallysean%{$fg[magenta]%}% |%{$reset_color%}% %D{%H:%M:%S}%{$fg[magenta]%}% ] %{$reset_color%}% %{$fg[cyan]%}% $ %{$reset_color%}%"
 
 bindkey -v
 bindkey '^r' history-incremental-search-backward
 
 ### aliases ###
 
-# rails
-alias bx='bundle exec '
-alias log='tail -f log/development.log '
-alias routes='rake routes | less'
-alias prodhax='fb && heroku run rails c -r production'
-alias stagehax='fb && heroku run rails c -r staging'
-alias localhax='fb && foreman start -f Procfile.development'
-alias dbmigrate='rake db:migrate && rake db:test:prepare'
-alias dbrollback='rake db:rollback && rake db:test:prepare'
-alias dbstatus='rake db:migrate:status'
-
-# doge
+# wow
 alias amaze="doge"
 alias such="git"
 alias very="git"
@@ -36,8 +25,14 @@ alias the="git"
 alias wow="git status"
 
 # git
-alias pwnbranches="git branch --merged >/tmp/merged-branches && vim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
-alias pwncloudbranches="git branch --merged >/tmp/merged-branches && vim /tmp/merged-branches && xargs git push --delete origin </tmp/merged-branches"
+alias rebasem="git checkout master && git pull && git checkout - && git rebase master"
+alias mergem="git checkout master && git pull && git checkout - && git merge master"
+alias pwnrembranches="git branch >/tmp/git-branches && vim /tmp/git-branches && xargs git push --delete origin </tmp/git-branches"
+alias pwnlocbranches="git branch >/tmp/git-branches && vim /tmp/git-branches && xargs git branch -D </tmp/git-branches"
+
+# crypto
+alias enc="openssl enc -e -aes-256-cbc -a -salt"
+alias dec="openssl enc -d -aes-256-cbc -a"
 
 # shortcuts
 alias ll="ls -l"
