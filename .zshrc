@@ -7,7 +7,7 @@ export XDG_CONFIG_HOME=/Users/seanmorton/.config
 # prompt
 autoload -U colors && colors
 #PROMPT="%{$fg[yellow]%}% [%{$reset_color%}% %m%{$fg[yellow]%}% |%{$reset_color%}% %D{%H:%M:%S}%{$fg[yellow]%}% ] %{$reset_color%}% %{$fg[green]%}% $ %{$reset_color%}%"
-PROMPT="%{$fg[magenta]%}% [%{$reset_color%}% tallysean%{$fg[magenta]%}% |%{$reset_color%}% %D{%H:%M:%S}%{$fg[magenta]%}% ] %{$reset_color%}% %{$fg[cyan]%}% $ %{$reset_color%}%"
+PROMPT="%{$fg[magenta]%}% [%{$reset_color%}% %m%{$fg[magenta]%}% |%{$reset_color%}% %D{%H:%M:%S}%{$fg[magenta]%}% ] %{$reset_color%}% %{$fg[cyan]%}% $ %{$reset_color%}%"
 
 bindkey -v
 bindkey '^r' history-incremental-search-backward
@@ -25,8 +25,6 @@ alias the="git"
 alias wow="git status"
 
 # git
-alias rebasem="git checkout master && git pull && git checkout - && git rebase master"
-alias mergem="git checkout master && git pull && git checkout - && git merge master"
 alias pwnrembranches="git branch >/tmp/git-branches && vim /tmp/git-branches && xargs git push --delete origin </tmp/git-branches"
 alias pwnlocbranches="git branch >/tmp/git-branches && vim /tmp/git-branches && xargs git branch -D </tmp/git-branches"
 
@@ -49,7 +47,3 @@ zstyle ':vcs_info:git:*' formats '%b'
 # thefuck
 eval $(thefuck --alias)
 eval $(thefuck --alias FUCK)
-
-# worthless neat things
-alias starwars="telnet towel.blinkenlights.nl"
-alias pipes="pipes.sh -BR -t 1 -p 25 -r 10000 -f 20"

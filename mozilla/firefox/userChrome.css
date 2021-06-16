@@ -1,7 +1,4 @@
-@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* only needed once */
-
-#content browser {
- margin-right: -14px !important;
- overflow-y: scroll;
- overflow-x: hidden;
+/* Completely hide the "title changed" notification dot on pinned tabs */
+.tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged] {
+  background-image: none !important;
 }

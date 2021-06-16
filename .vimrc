@@ -26,8 +26,8 @@ set tabstop=2                       " Width of a tab
 set softtabstop=2                   " Width of tab when in insert mode
 set shiftwidth=2                    " Width for auto tab operations
 
-" Configure FZF
-set rtp+=/usr/local/opt/fzf
+" Configure FZF (https://github.com/junegunn/fzf/blob/master/README-VIM.md)
+set rtp+={PATH_TO_FZF_DIR}
 let g:fzf_layout = { 'down': '20%' }
 let g:fzf_colors =
   \ { 'hl':       ['fg', 'fzfHighlight'],
@@ -40,9 +40,9 @@ let g:fzf_colors =
     \ 'prompt':   ['fg', 'fzfPrompt'] }
 
 " Remappings
+noremap <Leader>t :FZF<CR>
 nnoremap <CR> :noh<CR><CR>
 noremap <Leader>n :set number! relativenumber!<CR>
-noremap <Leader>t :FZF<CR>
 map Y y$
 
 " [ctags] open definition vertical split
@@ -74,21 +74,11 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<CR>
 inoremap <s-tab> <c-n>
 
-function OpenCommitHashUnderCursor()
-  let l:CommitHash = expand("<cword>")
-  execute "Dispatch open-commit " . l:CommitHash
-endfunction
-noremap <Leader>c :call OpenCommitHashUnderCursor()<CR>
-
 " Pathogen plugin manager
 " https://github.com/tpope/vim-pathogen
 execute pathogen#infect()
-  filetype plugin on
+  filetype plugin indent on
   colorscheme Tomorrow-Night-Eighties
-
-  " NERDTree file browser
-  " https://github.com/scrooloose/nerdtree
-  map <C-b> :NERDTreeToggle<CR>
 
   " ALE linter
   let g:ale_lint_on_text_changed = 'never'
@@ -98,27 +88,40 @@ execute pathogen#infect()
   let g:ale_sign_error='xx'
   let g:ale_sign_warning='!!'
 
+  " NERDTree file browser
+  " https://github.com/scrooloose/nerdtree
+  map <C-b> :NERDTreeToggle<CR>
+
   " comfortable-motion (smooth scroll)
   let g:comfortable_motion_no_default_key_mappings = 1
   let g:comfortable_motion_impulse_multiplier = 1.5
   nnoremap <silent> <C-j> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0))<CR>
   nnoremap <silent> <C-k> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * -1 * winheight(0))<CR>
 
-  " Ack (using ag)
-  cnoreabbrev Ack Ack!
-  nnoremap <Leader>a :Ack!<Space>
-  if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
-  endif
-  let g:ackhighlight = 1
-  let g:ack_autoclose = 1
+  " fzf.vim
+  noremap <Leader>a :Rg<CR>
+
+  " vim-fugitive
+  noremap <Leader>g :Git blame<CR>
+  noremap <Leader>G :Git edit<CR>
+
+  "
+  " Previously used and worth keeping for reference
+  "
+
+  " Ack (using rg)
+  " cnoreabbrev Ack Ack!
+  " nnoremap <Leader>a :Ack!<Space>
+  " if executable('rg')
+  "   let g:ackprg = 'rg --vimgrep --smart-case'
+  " endif
+  " let g:ackhighlight = 1
+  " let g:ack_autoclose = 1
+  " let g:ack_use_cword_for_empty_search = 1
+  " let g:ack_use_dispatch = 1
 
   " rspec-vim
-  noremap <Leader>r :call RunNearestSpec()<CR>
-  noremap <Leader>e :call RunLastSpec()<CR>
-  noremap <Leader>w :call RunCurrentSpecFile()<CR>
-  let g:rspec_command = "Dispatch bin/rspec -fd {spec}"
-
-  " fugitive
-  noremap <Leader>g :Gblame<CR>
-  noremap <Leader>G :Gedit<CR>
+  " noremap <Leader>r :call RunNearestSpec()<CR>
+  " noremap <Leader>e :call RunLastSpec()<CR>
+  " noremap <Leader>w :call RunCurrentSpecFile()<CR>
+  " let g:rspec_command = "Dispatch bin/rspec -fd {spec}"
