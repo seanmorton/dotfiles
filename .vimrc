@@ -41,6 +41,7 @@ let g:fzf_colors =
 
 " Remappings
 noremap <Leader>t :FZF<CR>
+noremap <Leader>b :Buffers<CR>
 nnoremap <CR> :noh<CR><CR>
 noremap <Leader>n :set number! relativenumber!<CR>
 map Y y$
@@ -87,6 +88,10 @@ execute pathogen#infect()
   noremap <Leader>k :ALEPrevious<CR>
   let g:ale_sign_error='xx'
   let g:ale_sign_warning='!!'
+  let g:ale_linters =
+        \ { 'javascript': ['eslint'],
+          \ 'haskell':    ['hlint'] }
+  let g:ale_haskell_hlint_options = '--refactor'
 
   " NERDTree file browser
   " https://github.com/scrooloose/nerdtree
@@ -104,6 +109,11 @@ execute pathogen#infect()
   " vim-fugitive
   noremap <Leader>g :Git blame<CR>
   noremap <Leader>G :Git edit<CR>
+
+  " Keep haskell tags up to date (requires tpope/vim-dispatch)
+  augroup haskell
+    autocmd BufWritePost *.hs :Dispatch! fast-tags %
+  augroup END
 
   "
   " Previously used and worth keeping for reference
