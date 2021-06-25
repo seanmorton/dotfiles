@@ -1,4 +1,14 @@
-/* Completely hide the "title changed" notification dot on pinned tabs */
+/* Hide the "title changed" notification dot on pinned tabs */
 .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged] {
   background-image: none !important;
+}
+
+/* Hide navigation bar when it is not focused; use Ctrl+L to get focus
+ * https://gist.github.com/hallettj/568eb8842fbc178fc1e9bc914331a75e
+ */
+#main-window:not([customizing]) #navigator-toolbox:not(:focus-within):not(:hover) {
+  margin-top: -100px;
+}
+#navigator-toolbox {
+  transition: 0.2s margin-top ease-out;
 }
