@@ -82,19 +82,22 @@ execute pathogen#infect()
   colorscheme Tomorrow-Night-Eighties
 
   " ALE linter
-  let g:ale_lint_on_text_changed = 'never'
-  noremap <Leader>s :ALEToggle<CR>
+  noremap <Leader>l :ALEToggle<CR>
   noremap <Leader>j :ALENext<CR>
   noremap <Leader>k :ALEPrevious<CR>
   let g:ale_sign_error='xx'
   let g:ale_sign_warning='!!'
   let g:ale_linters =
         \ { 'javascript': ['eslint'],
-          \ 'haskell':    ['hlint'] }
+          \ 'haskell':    ['hlint', 'stylish-haskell'] }
+  let g:ale_fixers =
+        \ {
+          \ 'haskell':    ['ormolu'] }
   let g:ale_haskell_hlint_options = '--refactor'
+  let g:ale_haskell_ormolu_executable="fourmolu"
+  let g:ale_fix_on_save = 1
 
   " NERDTree file browser
-  " https://github.com/scrooloose/nerdtree
   map <C-b> :NERDTreeToggle<CR>
 
   " comfortable-motion (smooth scroll)
@@ -105,6 +108,17 @@ execute pathogen#infect()
 
   " fzf.vim
   noremap <Leader>a :Rg<CR>
+  noremap <Leader>s :Rg <C-R><C-W><CR>
+  let g:fzf_preview_window = ['right:40%:hidden', 'ctrl-/']
+  " https://github.com/junegunn/fzf.vim#example-advanced-ripgrep-integration
+  " function! RipgrepFzf(query, fullscreen)
+  "   let command_fmt = 'rg --line-number --no-heading --color=always --smart-case -- %s || true'
+  "   let initial_command = printf(command_fmt, shellescape(a:query))
+  "   let reload_command = printf(command_fmt, '{q}')
+  "   let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  "   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+  " endfunction
+  " command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
   " vim-fugitive
   noremap <Leader>g :Git blame<CR>

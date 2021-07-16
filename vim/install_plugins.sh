@@ -6,6 +6,7 @@ cd ~/.vim/bundle
 git clone https://github.com/5outh/yesod-routes.vim.git
 git clone https://github.com/LnL7/vim-nix.git
 git clone https://github.com/junegunn/fzf.vim.git
+git clone https://github.com/ledger/vim-ledger.git
 git clone https://github.com/neovimhaskell/haskell-vim.git
 git clone https://github.com/scrooloose/nerdtree.git
 git clone https://github.com/seanmorton/vim-tomorrow-night-eighties.git

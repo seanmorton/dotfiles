@@ -2,6 +2,7 @@ export PATH="$PATH:$HOME/bin"
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export EDITOR="vim"
+export FZF_DEFAULT_COMMAND='fd --type f'
 export XDG_CONFIG_HOME=/Users/seanmorton/.config
 
 # prompt
@@ -34,6 +35,7 @@ alias dec="openssl enc -d -aes-256-cbc -a"
 
 # shortcuts
 alias ll="ls -l"
+alias open="xdg-open"
 
 # git completion and current branch in right prompt
 autoload -Uz compinit && compinit
