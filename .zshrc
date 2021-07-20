@@ -35,6 +35,7 @@ alias dec="openssl enc -d -aes-256-cbc -a"
 
 # shortcuts
 alias ll="ls -l"
+alias hl="hledger"
 alias open="xdg-open"
 
 # git completion and current branch in right prompt
