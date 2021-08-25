@@ -6,7 +6,7 @@
 
 {
   imports =
-    [
+    [ 
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
@@ -22,7 +22,7 @@
   boot.kernelParams = [ "acpi_backlight=native" ];
 
   # Set hostname.
-  networking.hostName = "sean-mercury";
+  networking.hostName = "sean-mercury"; 
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -52,10 +52,11 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.xkbOptions = "ctrl:nocaps";
 
   # Enable and configure the GNOME 3 Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;  
   environment.gnome.excludePackages = with pkgs.gnome3; [
     gnome-music # TODO exclude more gnome packages
     gnome-photos
@@ -63,10 +64,42 @@
     gnome-weather
   ];
 
+  # Mercury development setup
+    # UTC is required for Mercury to run
+  # The other settings will speed up tests, at the cost of crash-safety
+  services.postgresql = {
+    package = pkgs.postgresql_13;
+    enable = true;
+    enableTCPIP = false;
+    authentication = ''
+      local all all trust
+      host all all 127.0.0.1/32 trust
+      host all all ::1/128 trust
+    '';
+    extraPlugins = [config.services.postgresql.package.pkgs.postgis];
+    # for configuration in NixOS 20.09 or later
+    settings = {
+      timezone = "UTC";
+      shared_buffers = 128;
+      fsync = false;
+      synchronous_commit = false;
+      full_page_writes = false;
+    };
+  };
+
+  nix = {
+    buildCores = 4;
+    trustedBinaryCaches = [ "https://cache.mercury.com/" "https://cache.nixos.org" ];
+    binaryCaches = [ "https://cache.mercury.com/" "https://cache.nixos.org" ];
+    binaryCachePublicKeys = [
+      "cache.mercury.com:yhfFlgvqtv0cAxzflJ0aZW3mbulx4+5EOZm6k3oML+I="
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+    ];
+  };
+
   # Configure keymap in X11
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
-  services.xserver.xkbOptions = "ctrl:nocaps";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -102,15 +135,33 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     curl
+    dig
+    doge
+    evtest
+    fd
     firefox
     fzf
     git
     gnome.gnome-tweak-tool
+    gthumb
+    helmfile
+    hledger
+    htop
+    keybase
+    keybase-gui
+    insomnia
+    lm_sensors
+    lsof
+    nodejs
+    pwgen
     ripgrep
+    ruby
+    slack
     thefuck
+    tmate
     tmux
     unzip
-    vim
+    vim 
     wget
     yubikey-manager-qt
     zoom-us
@@ -118,6 +169,9 @@
     haskellPackages.apply-refact
     haskellPackages.cabal-install
     hlint
+    stack
+    stylish-haskell
+    zlib
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

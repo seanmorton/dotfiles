@@ -108,8 +108,8 @@ execute pathogen#infect()
   nnoremap <silent> <C-k> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * -1 * winheight(0))<CR>
 
   " fzf.vim
-  noremap <Leader>a :Rg<CR>
-  noremap <Leader>s :Rg <C-R><C-W><CR>
+  noremap <Leader>a :Rg<Space>
+  noremap <Leader>s :Rg <C-R><C-W>
   let g:fzf_preview_window = ['right:40%:hidden', 'ctrl-/']
   " https://github.com/junegunn/fzf.vim#example-advanced-ripgrep-integration
   " function! RipgrepFzf(query, fullscreen)
