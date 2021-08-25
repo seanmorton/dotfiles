@@ -1,19 +1,10 @@
-export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$HOME/.cabal/bin"
-export PATH="$PATH:$HOME/.local/bin"
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export EDITOR="vim"
 export FZF_DEFAULT_COMMAND='fd --type f'
-export LEDGER_FILE=~/src/accounting/2021.journal
-export XDG_CONFIG_HOME=/home/seanmorton/.config
-
-# Mercury development
-export PGUSER=mercury-web-backend
-alias mwb="cd ~/src/mercury-web-backend"
-alias vpnstart="sudo systemctl start openvpn-pritunl"
-alias vpnstop="sudo systemctl stop openvpn-pritunl"
-alias vpnstatus="sudo systemctl status openvpn-pritunl"
+#export PATH="$PATH:$HOME/bin"
+# export LEDGER_FILE=
+# export XDG_CONFIG_HOME=/home/seanmorton/.config
 
 # prompt
 autoload -U colors && colors
@@ -46,8 +37,8 @@ alias dec="openssl enc -d -aes-256-cbc -a"
 # shortcuts
 alias ll="ls -l"
 alias hl="hledger"
-alias open="xdg-open"
 alias reload="source ~/.zshrc"
+# alias open="xdg-open"
 
 # git completion and current branch in right prompt
 autoload -Uz compinit && compinit
