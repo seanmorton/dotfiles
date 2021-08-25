@@ -6,7 +6,7 @@
 
 {
   imports =
-    [ 
+    [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
@@ -22,7 +22,7 @@
   boot.kernelParams = [ "acpi_backlight=native" ];
 
   # Set hostname.
-  networking.hostName = "sean-mercury"; 
+  networking.hostName = "sean";
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -56,7 +56,7 @@
 
   # Enable and configure the GNOME 3 Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;  
+  services.xserver.desktopManager.gnome.enable = true;
   environment.gnome.excludePackages = with pkgs.gnome3; [
     gnome-music # TODO exclude more gnome packages
     gnome-photos
@@ -64,9 +64,6 @@
     gnome-weather
   ];
 
-  # Mercury development setup
-    # UTC is required for Mercury to run
-  # The other settings will speed up tests, at the cost of crash-safety
   services.postgresql = {
     package = pkgs.postgresql_13;
     enable = true;
@@ -89,12 +86,6 @@
 
   nix = {
     buildCores = 4;
-    trustedBinaryCaches = [ "https://cache.mercury.com/" "https://cache.nixos.org" ];
-    binaryCaches = [ "https://cache.mercury.com/" "https://cache.nixos.org" ];
-    binaryCachePublicKeys = [
-      "cache.mercury.com:yhfFlgvqtv0cAxzflJ0aZW3mbulx4+5EOZm6k3oML+I="
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-    ];
   };
 
   # Configure keymap in X11
@@ -161,7 +152,7 @@
     tmate
     tmux
     unzip
-    vim 
+    vim
     wget
     yubikey-manager-qt
     zoom-us
