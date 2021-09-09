@@ -1,0 +1,33 @@
+[seanmorton|11:59:32] $ brew list                                                                                                                                                       main
+==> Formulae
+adns                    gettext                 leptonica               libsodium               mpfr                    postgresql              taglib
+aom                     ghostscript             libao                   libsoxr                 nasm                    postgresql@11           tcl-tk
+autoconf                giflib                  libass                  libtasn1                ncmpcpp                 postgresql@12           tesseract
+automake                git                     libassuan               libtiff                 ncurses                 pwgen                   texi2html
+bdw-gc                  glib                    libatomic_ops           libtool                 nettle                  python                  the_silver_searcher
+berkeley-db             gmp                     libbluray               libunistring            nghttp2                 python3                 thefuck
+boost                   gnu-getopt              libde265                libupnp                 ninja                   python@3.8              theora
+c-ares                  gnupg                   libev                   libusb                  node                    python@3.9              tmux
+cairo                   gnutls                  libevent                libvidstab              npth                    rav1e                   transmission-cli
+coreutils               gobject-introspection   libffi                  libvorbis               oniguruma               rbenv                   unbound
+cowsay                  graphite2               libgcrypt               libvpx                  open-mpi                readline                universal-ctags
+dav1d                   gtk-doc                 libgpg-error            libx11                  openconnect             ripgrep                 utf8proc
+docbook                 guile                   libheif                 libxau                  opencore-amr            rsync                   vim
+docbook-xsl             harfbuzz                libid3tag               libxcb                  openexr                 rtmpdump                w3m
+expat                   hledger                 libidn                  libxdmcp                openjdk                 rubberband              watch
+faad2                   hwloc                   libidn2                 libxext                 openjpeg                ruby                    webp
+ffmpeg                  icu4c                   libksba                 libxml2                 openssl@1.1             ruby-build              x264
+fftw                    ilmbase                 liblqr                  libxrender              openttd                 scala                   x265
+flac                    imagemagick             libmpc                  libyaml                 opus                    sdl2                    xmlto
+fluid-synth             imath                   libmpdclient            little-cms2             p11-kit                 shared-mime-info        xorgproto
+fontconfig              isl                     libnfs                  lua                     pcre                    snappy                  xvid
+fortune                 itstool                 libogg                  lz4                     pcre2                   source-highlight        xxhash
+freetype                jbig2dec                libomp                  lzo                     perl                    speedtest               xz
+frei0r                  jemalloc                libpng                  m4                      pinentry                speex                   yarn
+fribidi                 jpeg                    libpthread-stubs        meson                   pixman                  sphinx-doc              zeromq
+fzf                     jq                      libsamplerate           mpc                     pkg-config              sqlite                  zimg
+gcc                     krb5                    libshout                mpd                     popt                    srt                     zsh
+gdbm                    lame                    libsndfile              mpdecimal               portaudio               stoken                  zstd
+
+==> Casks
+adoptopenjdk    amethyst        chromedriver    xquartz
