@@ -11,8 +11,7 @@ export SOPS_PGP_FP=
 
 # prompt
 autoload -U colors && colors
-#PROMPT="%{$fg[yellow]%}% [%{$reset_color%}% %m%{$fg[yellow]%}% |%{$reset_color%}% %D{%H:%M:%S}%{$fg[yellow]%}% ] %{$reset_color%}% %{$fg[green]%}% $ %{$reset_color%}%"
-PROMPT="%{$fg[magenta]%}% [%{$reset_color%}% %m%{$fg[magenta]%}% |%{$reset_color%}% %D{%H:%M:%S}%{$fg[magenta]%}% ] %{$reset_color%}% %{$fg[cyan]%}% $ %{$reset_color%}%"
+PROMPT="%{$fg[magenta]%}% [%{$reset_color%}% %1d%{$fg[magenta]%}% |%{$reset_color%}% %D{%H:%M:%S}%{$fg[magenta]%}% ] %{$reset_color%}% %{$fg[cyan]%}% $ %{$reset_color%}%"
 
 bindkey -v
 bindkey '^r' history-incremental-search-backward
@@ -20,13 +19,7 @@ bindkey '^r' history-incremental-search-backward
 ### aliases ###
 
 # rails
-eval "$(rbenv init -)"
-alias bx='bundle exec '
-alias log='tail -f log/development.log '
 alias routes='rake routes | less'
-alias prodhax='fb && heroku run rails c -r production'
-alias stagehax='fb && heroku run rails c -r staging'
-alias localhax='fb && foreman start -f Procfile.development'
 alias dbmigrate='rake db:migrate && rake db:test:prepare'
 alias dbrollback='rake db:rollback && rake db:test:prepare'
 alias dbstatus='rake db:migrate:status'
