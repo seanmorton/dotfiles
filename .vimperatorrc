@@ -1,6 +1,0 @@
-set gui=nonavigation
-noremap j 3j
-noremap k 3k
-noremap <Left> H
-noremap <Right> L
-colorscheme arc
