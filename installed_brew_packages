@@ -1,33 +1,213 @@
-[seanmorton|11:59:32] $ brew list                                                                                                                                                       main
-==> Formulae
-adns                    gettext                 leptonica               libsodium               mpfr                    postgresql              taglib
-aom                     ghostscript             libao                   libsoxr                 nasm                    postgresql@11           tcl-tk
-autoconf                giflib                  libass                  libtasn1                ncmpcpp                 postgresql@12           tesseract
-automake                git                     libassuan               libtiff                 ncurses                 pwgen                   texi2html
-bdw-gc                  glib                    libatomic_ops           libtool                 nettle                  python                  the_silver_searcher
-berkeley-db             gmp                     libbluray               libunistring            nghttp2                 python3                 thefuck
-boost                   gnu-getopt              libde265                libupnp                 ninja                   python@3.8              theora
-c-ares                  gnupg                   libev                   libusb                  node                    python@3.9              tmux
-cairo                   gnutls                  libevent                libvidstab              npth                    rav1e                   transmission-cli
-coreutils               gobject-introspection   libffi                  libvorbis               oniguruma               rbenv                   unbound
-cowsay                  graphite2               libgcrypt               libvpx                  open-mpi                readline                universal-ctags
-dav1d                   gtk-doc                 libgpg-error            libx11                  openconnect             ripgrep                 utf8proc
-docbook                 guile                   libheif                 libxau                  opencore-amr            rsync                   vim
-docbook-xsl             harfbuzz                libid3tag               libxcb                  openexr                 rtmpdump                w3m
-expat                   hledger                 libidn                  libxdmcp                openjdk                 rubberband              watch
-faad2                   hwloc                   libidn2                 libxext                 openjpeg                ruby                    webp
-ffmpeg                  icu4c                   libksba                 libxml2                 openssl@1.1             ruby-build              x264
-fftw                    ilmbase                 liblqr                  libxrender              openttd                 scala                   x265
-flac                    imagemagick             libmpc                  libyaml                 opus                    sdl2                    xmlto
-fluid-synth             imath                   libmpdclient            little-cms2             p11-kit                 shared-mime-info        xorgproto
-fontconfig              isl                     libnfs                  lua                     pcre                    snappy                  xvid
-fortune                 itstool                 libogg                  lz4                     pcre2                   source-highlight        xxhash
-freetype                jbig2dec                libomp                  lzo                     perl                    speedtest               xz
-frei0r                  jemalloc                libpng                  m4                      pinentry                speex                   yarn
-fribidi                 jpeg                    libpthread-stubs        meson                   pixman                  sphinx-doc              zeromq
-fzf                     jq                      libsamplerate           mpc                     pkg-config              sqlite                  zimg
-gcc                     krb5                    libshout                mpd                     popt                    srt                     zsh
-gdbm                    lame                    libsndfile              mpdecimal               portaudio               stoken                  zstd
-
-==> Casks
-adoptopenjdk    amethyst        chromedriver    xquartz
+adns
+aom
+autoconf
+automake
+awscli
+bdw-gc
+berkeley-db
+boost
+brotli
+c-ares
+ca-certificates
+cairo
+coreutils
+cowsay
+dav1d
+docbook
+docbook-xsl
+expat
+faad2
+ffmpeg
+fftw
+flac
+fluid-synth
+fontconfig
+fortune
+freetype
+frei0r
+fribidi
+fzf
+gcc
+gdbm
+gettext
+ghostscript
+giflib
+git
+glib
+gmp
+gnu-getopt
+gnupg
+gnutls
+gobject-introspection
+graphite2
+gtk-doc
+guile
+harfbuzz
+hledger
+hwloc
+icu4c
+ilmbase
+imagemagick
+imath
+isl
+itstool
+jbig2dec
+jemalloc
+jenv
+jpeg
+jpeg-xl
+jq
+krb5
+lame
+leptonica
+libao
+libass
+libassuan
+libatomic_ops
+libbluray
+libde265
+libev
+libevent
+libffi
+libgcrypt
+libgpg-error
+libheif
+libid3tag
+libidn
+libidn2
+libksba
+liblqr
+libmpc
+libmpdclient
+libnfs
+libnghttp2
+libogg
+libomp
+libpng
+libpthread-stubs
+libsamplerate
+libshout
+libsndfile
+libsodium
+libsoxr
+libtasn1
+libtiff
+libtool
+libunistring
+libupnp
+libusb
+libuv
+libvidstab
+libvmaf
+libvorbis
+libvpx
+libx11
+libxau
+libxcb
+libxdmcp
+libxext
+libxml2
+libxrender
+libyaml
+little-cms2
+lua
+lz4
+lzo
+m4
+meson
+mpc
+mpd
+mpdecimal
+mpfr
+nasm
+ncmpcpp
+ncurses
+nettle
+nghttp2
+ninja
+node
+npth
+oniguruma
+open-mpi
+openconnect
+opencore-amr
+openexr
+openjdk
+openjdk@8
+openjpeg
+openssl@1.1
+openttd
+opus
+p11-kit
+pcre
+pcre2
+perl
+pinentry
+pixman
+pkg-config
+popt
+portaudio
+postgresql
+postgresql@11
+postgresql@12
+pwgen
+python
+python3
+python@3.10
+python@3.8
+python@3.9
+rav1e
+rbenv
+readline
+ripgrep
+rsync
+rtmpdump
+rubberband
+ruby
+ruby-build
+saml2aws
+sdl2
+shared-mime-info
+six
+snappy
+sops
+source-highlight
+speedtest
+speex
+sphinx-doc
+sqlite
+srt
+stoken
+taglib
+tcl-tk
+telepresence
+tesseract
+texi2html
+the_silver_searcher
+thefuck
+theora
+tmux
+transmission-cli
+unbound
+universal-ctags
+utf8proc
+vim
+w3m
+watch
+webp
+x264
+x265
+xmlto
+xorgproto
+xvid
+xxhash
+xz
+yarn
+zeromq
+zimg
+zsh
+zstd
+amethyst
+chromedriver
+docker
+xquartz
