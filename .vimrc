@@ -26,8 +26,8 @@ set tabstop=2                       " Width of a tab
 set softtabstop=2                   " Width of tab when in insert mode
 set shiftwidth=2                    " Width for auto tab operations
 
-" Configure FZF (https://github.com/junegunn/fzf/blob/master/README-VIM.md)
-set rtp+={PATH_TO_FZF_DIR}
+" Configure FZF
+set rtp+=/usr/local/opt/fzf
 let g:fzf_layout = { 'down': '20%' }
 let g:fzf_colors =
   \ { 'hl':       ['fg', 'fzfHighlight'],
@@ -81,6 +81,10 @@ execute pathogen#infect()
   filetype plugin indent on
   colorscheme Tomorrow-Night-Eighties
 
+  " NERDTree file browser
+  " https://github.com/scrooloose/nerdtree
+  map <C-b> :NERDTreeToggle<CR>
+
   " ALE linter
   noremap <Leader>l :ALEToggle<CR>
   noremap <Leader>j :ALENext<CR>
@@ -97,56 +101,17 @@ execute pathogen#infect()
   let g:ale_haskell_ormolu_executable="fourmolu"
   let g:ale_fix_on_save = 1
 
-  " NERDTree file browser
-  " https://github.com/scrooloose/nerdtree
-  map <C-b> :NERDTreeToggle<CR>
-
   " comfortable-motion (smooth scroll)
   let g:comfortable_motion_no_default_key_mappings = 1
   let g:comfortable_motion_impulse_multiplier = 1.5
   nnoremap <silent> <C-j> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0))<CR>
   nnoremap <silent> <C-k> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * -1 * winheight(0))<CR>
 
+  " fugitive
+  noremap <Leader>g :Git blame<CR>
+  noremap <Leader>G :Gedit<CR>
+
   " fzf.vim
   noremap <Leader>a :Rg<Space>
   noremap <Leader>s :Rg <C-R><C-W>
   let g:fzf_preview_window = ['right:40%:hidden', 'ctrl-/']
-  " https://github.com/junegunn/fzf.vim#example-advanced-ripgrep-integration
-  " function! RipgrepFzf(query, fullscreen)
-  "   let command_fmt = 'rg --line-number --no-heading --color=always --smart-case -- %s || true'
-  "   let initial_command = printf(command_fmt, shellescape(a:query))
-  "   let reload_command = printf(command_fmt, '{q}')
-  "   let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-  "   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-  " endfunction
-  " command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
-
-  " vim-fugitive
-  noremap <Leader>g :Git blame<CR>
-  noremap <Leader>G :Git edit<CR>
-
-  " Keep haskell tags up to date (requires tpope/vim-dispatch)
-  augroup haskell
-    autocmd BufWritePost *.hs :Dispatch! fast-tags %
-  augroup END
-
-  "
-  " Previously used and worth keeping for reference
-  "
-
-  " Ack (using rg)
-  " cnoreabbrev Ack Ack!
-  " nnoremap <Leader>a :Ack!<Space>
-  " if executable('rg')
-  "   let g:ackprg = 'rg --vimgrep --smart-case'
-  " endif
-  " let g:ackhighlight = 1
-  " let g:ack_autoclose = 1
-  " let g:ack_use_cword_for_empty_search = 1
-  " let g:ack_use_dispatch = 1
-
-  " rspec-vim
-  " noremap <Leader>r :call RunNearestSpec()<CR>
-  " noremap <Leader>e :call RunLastSpec()<CR>
-  " noremap <Leader>w :call RunCurrentSpecFile()<CR>
-  " let g:rspec_command = "Dispatch bin/rspec -fd {spec}"
