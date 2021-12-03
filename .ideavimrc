@@ -11,6 +11,7 @@ map Y y$
 nnoremap <CR> :noh<CR>
 nnoremap <C-]> :action GotoDeclaration<CR>
 nnoremap <C-t> :action Back<CR>
+nnoremap <C-o> :action Back<CR>
 nnoremap <Leader>g :action Annotate<CR>
 nnoremap <Leader>t :action GotoClass<CR>
 nnoremap <Leader>a :action FindInPath<CR>
