@@ -1,7 +1,7 @@
 # MPD
 mpd_host = "localhost"
 mpd_port = "6600"
-mpd_music_dir = "/home/megus/music/"
+mpd_music_dir = "/Users/sean/Music/library"
 mpd_connection_timeout = "5"
 mpd_crossfade_time = "5"
 
@@ -28,21 +28,21 @@ state_flags_color = "default"
 main_window_color = "default"
 color1 = "default"
 color2 = "default"
-main_window_highlight_color = "white"
+# main_window_highlight_color = "white"
 progressbar_color = "yellow"
 statusbar_color = "green"
 alternative_ui_separator_color = "default"
-active_column_color = "magenta"
+# active_column_color = "magenta"
 visualizer_color = "magenta"
 window_border_color = "yellow"
 song_columns_list_format = "(10)[cyan]{l} (20)[magenta]{a} (30)[default]{b} (50)[green]{t}"
 
 # Visualizer
-visualizer_fifo_path = "/home/megus/.mpd/mpd.fifo"
+visualizer_fifo_path = "/Users/sean/.mpd/mpd.fifo"
 visualizer_output_name = "my_fifo"
 visualizer_sync_interval = "30"
 visualizer_in_stereo = "yes"
 #visualizer_type = "wave" (spectrum/wave)
-visualizer_type = "spectrum" (spectrum/wave)
+visualizer_type = "wave" (spectrum/wave)
 
 
