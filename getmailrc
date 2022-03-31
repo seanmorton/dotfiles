@@ -1,0 +1,12 @@
+[retriever]
+type = SimpleIMAPSSLRetriever
+server = < IMAP HOST >
+username = < USERNAME >
+password = < PASSWORD >
+
+[destination]
+type = Maildir
+path = ~/mail/
+
+[options]
+read_all = false
