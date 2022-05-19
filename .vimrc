@@ -115,3 +115,9 @@ execute pathogen#infect()
   noremap <Leader>a :Rg<Space>
   noremap <Leader>s :Rg <C-R><C-W>
   let g:fzf_preview_window = ['right:40%:hidden', 'ctrl-/']
+
+  " vim-ledger
+  au FileType ledger autocmd BufWritePre * $-1000,$LedgerAlign
+  au FileType ledger noremap { ?^\d<CR>
+  au FileType ledger noremap } /^\d<CR>
+  nnoremap <silent> <S-l> :call ledger#transaction_state_toggle(line('.'), ' *?!')<CR>
