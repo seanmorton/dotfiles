@@ -1,16 +1,17 @@
 " Config
-set nocompatible                    " Use vim rather than vi settings
 set autoread                        " Reload externally edited files
-set pastetoggle=<F10>               " Enable past insert mode with F10
 set encoding=utf-8                  " For the wurldz
+set mouse=a                         " Enable mouse (esp. for balloons and scrolling in popups)
+set nocompatible                    " Use vim rather than vi settings
+set pastetoggle=<F10>               " Enable past insert mode with F10
 set scrolloff=5                     " Display at least 5 lines above and below the cursor
 set t_ut=                           " Disable background color erase for tmux/screen
 
 " Appearance
 syntax on                           " Enable syntax highlighting
 set linebreak                       " Wrap at convenient points
-set ruler                           " Show row,column numbers
 set number relativenumber           " 'Hybrid' line numbers
+set ruler                           " Show row,column numbers
 
 " Searching
 set hlsearch                        " Highlight search results
@@ -19,12 +20,12 @@ set smartcase                       " Unless capital letter specified
 
 " Indentation
 set autoindent                      " Indent to same level of previous line
+set expandtab                       " Use spaces instead of tabs
+set shiftwidth=2                    " Width for auto tab operations
 set smartindent                     " Add indents to nested statements
 set smarttab                        " Handle tabs at beginning of lines better
-set expandtab                       " Use spaces instead of tabs
-set tabstop=2                       " Width of a tab
 set softtabstop=2                   " Width of tab when in insert mode
-set shiftwidth=2                    " Width for auto tab operations
+set tabstop=2                       " Width of a tab
 
 " Configure FZF
 set rtp+=/usr/local/opt/fzf
@@ -117,7 +118,17 @@ execute pathogen#infect()
   let g:fzf_preview_window = ['right:40%:hidden', 'ctrl-/']
 
   " vim-ledger
-  au FileType ledger autocmd BufWritePre * $-1000,$LedgerAlign
+  au FileType ledger autocmd BufWritePre *.journal $-1000,$LedgerAlign
   au FileType ledger noremap { ?^\d<CR>
   au FileType ledger noremap } /^\d<CR>
   nnoremap <silent> <S-l> :call ledger#transaction_state_toggle(line('.'), ' *?!')<CR>
+
+  " vim-go
+  let g:go_def_mode='gopls'
+  let g:go_doc_popup_window=1
+  let g:go_info_mode='gopls'
+  let g:go_list_height=5
+  let g:go_list_autoclose =1
+  let g:go_list_type ="quickfix"
+  noremap <Leader>d :GoDef<CR>
+
