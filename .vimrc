@@ -28,7 +28,7 @@ set softtabstop=2                   " Width of tab when in insert mode
 set tabstop=2                       " Width of a tab
 
 " Configure FZF
-set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/Cellar/fzf/0.28.0
 let g:fzf_layout = { 'down': '20%' }
 let g:fzf_colors =
   \ { 'hl':       ['fg', 'fzfHighlight'],
@@ -118,7 +118,12 @@ execute pathogen#infect()
   let g:fzf_preview_window = ['right:40%:hidden', 'ctrl-/']
 
   " vim-ledger
-  au FileType ledger autocmd BufWritePre *.journal $-1000,$LedgerAlign
+  function! LedgerAlignLastN()
+    normal my
+    $-1000,$LedgerAlign
+    normal 'y
+  endfunction
+  au FileType ledger autocmd BufWritePre *.journal call LedgerAlignLastN()
   au FileType ledger noremap { ?^\d<CR>
   au FileType ledger noremap } /^\d<CR>
   nnoremap <silent> <S-l> :call ledger#transaction_state_toggle(line('.'), ' *?!')<CR>
