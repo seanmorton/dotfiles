@@ -1,7 +1,6 @@
 " Config
 set autoread                        " Reload externally edited files
 set encoding=utf-8                  " For the wurldz
-set mouse=a                         " Enable mouse (esp. for balloons and scrolling in popups)
 set nocompatible                    " Use vim rather than vi settings
 set pastetoggle=<F10>               " Enable past insert mode with F10
 set scrolloff=5                     " Display at least 5 lines above and below the cursor
@@ -85,6 +84,9 @@ execute pathogen#infect()
   " NERDTree file browser
   " https://github.com/scrooloose/nerdtree
   map <C-b> :NERDTreeToggle<CR>
+  let NERDTreeShowHidden=1
+  let g:terraform_align=1
+  let g:terraform_fmt_on_save=1
 
   " ALE linter
   noremap <Leader>l :ALEToggle<CR>
@@ -126,14 +128,14 @@ execute pathogen#infect()
   au FileType ledger autocmd BufWritePre *.journal call LedgerAlignLastN()
   au FileType ledger noremap { ?^\d<CR>
   au FileType ledger noremap } /^\d<CR>
+  au FileType ledger set nohlsearch
   nnoremap <silent> <S-l> :call ledger#transaction_state_toggle(line('.'), ' *?!')<CR>
 
   " vim-go
   let g:go_def_mode='gopls'
-  let g:go_doc_popup_window=1
   let g:go_info_mode='gopls'
   let g:go_list_height=5
-  let g:go_list_autoclose =1
+  let g:go_list_autoclose=1
   let g:go_list_type ="quickfix"
+  let g:go_imports_autosave=0
   noremap <Leader>d :GoDef<CR>
-
