@@ -23,3 +23,4 @@ user_pref("privacy.clearOnShutdown.sessions", false);
 user_pref("privacy.clearOnShutdown.siteSettings", true);
 user_pref("privacy.donottrackheader.enabled", true);
 user_pref("signon.rememberSignons", false);
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", false);

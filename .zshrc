@@ -1,11 +1,13 @@
 export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/Library/Python/3.10/bin"
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export EDITOR="vim"
-export XDG_CONFIG_HOME=/Users/sean/.config
+export XDG_CONFIG_HOME=/Users/seanmorton/.config
 GPG_TTY=$(tty)
 export GPG_TTY
 export SOPS_PGP_FP=
+export LEDGER_FILE=/Users/seanmorton/src/accounting/2020-2025.journal
 
 # https://gitanswer.com/thefuck-git-push-upstream-branch-does-not-exist-wrong-command-recommended-first-python-920682861
 export THEFUCK_PRIORITY="git_hook_bypass=1100"
@@ -36,7 +38,7 @@ alias wow="git status"
 
 # git
 alias pwnbranches="git branch > /tmp/branches && vim /tmp/branches && xargs git branch -D < /tmp/branches"
-alias pwncloudbranches="git branch > /tmp/branches && vim /tmp/branches && xargs git push --delete origin < /tmp/branches"
+alias pwnrembranches="git branch > /tmp/branches && vim /tmp/branches && xargs git push --delete origin < /tmp/branches"
 alias yolo="git commit --no-verify"
 
 # shortcuts
@@ -45,9 +47,12 @@ alias ll="ls -l"
 alias cputemp="watch -n3 --color istats"
 alias hl="hledger --strict"
 alias reload="source ~/.zshrc"
-alias myp="python3"
+alias python="python3"
+alias pip="pip3"
 alias acc="cd ~/src/accounting"
 alias gol="cd ~/src/go"
+alias k="kubectl "
+alias kset="kubectl config set-context --current "
 
 # git completion and current branch in right prompt
 autoload -Uz compinit && compinit
@@ -60,6 +65,7 @@ zstyle ':vcs_info:git:*' formats '%b'
 
 # thefuck
 eval $(thefuck --alias)
+
 eval $(thefuck --alias FUCK)
 
 # worthless neat things

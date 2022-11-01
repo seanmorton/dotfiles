@@ -3,3 +3,5 @@
 [user]
 	name = Sean Morton
 	email = seanmorton@hey.com
+[push]
+  autoSetupRemote = true

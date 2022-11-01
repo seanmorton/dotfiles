@@ -27,7 +27,7 @@ set softtabstop=2                   " Width of tab when in insert mode
 set tabstop=2                       " Width of a tab
 
 " Configure FZF
-set rtp+=/opt/homebrew/Cellar/fzf/0.28.0
+set rtp+=/opt/homebrew/bin/fzf
 let g:fzf_layout = { 'down': '20%' }
 let g:fzf_colors =
   \ { 'hl':       ['fg', 'fzfHighlight'],

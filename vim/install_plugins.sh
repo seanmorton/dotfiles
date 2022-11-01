@@ -5,6 +5,7 @@ cd ~/.vim/bundle
 
 git clone https://github.com/fatih/vim-go.git
 git clone https://github.com/hashivim/vim-terraform.git
+git clone https://github.com/junegunn/fzf
 git clone https://github.com/junegunn/fzf.vim.git
 git clone https://github.com/ledger/vim-ledger.git
 git clone https://github.com/scrooloose/nerdtree.git
