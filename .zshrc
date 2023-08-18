@@ -1,16 +1,11 @@
 export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$HOME/Library/Python/3.10/bin"
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export EDITOR="vim"
-export XDG_CONFIG_HOME=/Users/seanmorton/.config
+export XDG_CONFIG_HOME=/Users/<VAR_USERNAME>/.config
 GPG_TTY=$(tty)
 export GPG_TTY
 export SOPS_PGP_FP=
-export LEDGER_FILE=/Users/seanmorton/src/accounting/2020-2025.journal
-
-# https://gitanswer.com/thefuck-git-push-upstream-branch-does-not-exist-wrong-command-recommended-first-python-920682861
-export THEFUCK_PRIORITY="git_hook_bypass=1100"
 
 # prompt
 autoload -U colors && colors
@@ -26,7 +21,7 @@ alias dbmigrate='rake db:migrate && rake db:test:prepare'
 alias dbrollback='rake db:rollback && rake db:test:prepare'
 alias dbstatus='rake db:migrate:status'
 
-# doge
+# git doge
 alias amaze="doge"
 alias such="git"
 alias very="git"
@@ -37,6 +32,7 @@ alias the="git"
 alias wow="git status"
 
 # git
+alias g="git "
 alias pwnbranches="git branch > /tmp/branches && vim /tmp/branches && xargs git branch -D < /tmp/branches"
 alias pwnrembranches="git branch > /tmp/branches && vim /tmp/branches && xargs git push --delete origin < /tmp/branches"
 alias yolo="git commit --no-verify"
@@ -62,15 +58,6 @@ precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
 RPROMPT=\$vcs_info_msg_0_
 zstyle ':vcs_info:git:*' formats '%b'
-
-# thefuck
-eval $(thefuck --alias)
-
-eval $(thefuck --alias FUCK)
-
-# worthless neat things
-alias starwars="telnet towel.blinkenlights.nl"
-alias pipes="pipes.sh -BR -t 1 -p 25 -r 10000 -f 20"
 
 # utilities
 function csvcat {
