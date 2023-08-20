@@ -33,8 +33,7 @@ alias wow="git status"
 
 # git
 alias g="git "
-alias pwnbranches="git branch > /tmp/branches && vim /tmp/branches && xargs git branch -D < /tmp/branches"
-alias pwnrembranches="git branch > /tmp/branches && vim /tmp/branches && xargs git push --delete origin < /tmp/branches"
+alias pwnbranches="git branch > /tmp/branches && vim /tmp/branches && xargs git branch -D < /tmp/branches && xargs git push --delete origin < /tmp/branches"
 alias yolo="git commit --no-verify"
 
 # shortcuts
@@ -49,6 +48,7 @@ alias acc="cd ~/src/accounting"
 alias gol="cd ~/src/go"
 alias k="kubectl "
 alias kset="kubectl config set-context --current "
+alias tf="terraform "
 
 # git completion and current branch in right prompt
 autoload -Uz compinit && compinit
