@@ -1,5 +1,6 @@
 #!/bin/bash
 brew install curl
+brew install fd
 brew install fzf
 brew install git
 brew install jenv

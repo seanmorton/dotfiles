@@ -6,6 +6,7 @@ export XDG_CONFIG_HOME=/Users/<VAR_USERNAME>/.config
 GPG_TTY=$(tty)
 export GPG_TTY
 export SOPS_PGP_FP=
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 
 # prompt
 autoload -U colors && colors
