@@ -3,6 +3,7 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 cd ~/.vim/bundle
 
+git clone https://github.com/charlespascoe/vim-go-syntax.git
 git clone https://github.com/fatih/vim-go.git
 git clone https://github.com/hashivim/vim-terraform.git
 git clone https://github.com/junegunn/fzf
