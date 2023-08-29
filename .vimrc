@@ -5,6 +5,7 @@ set nocompatible                    " Use vim rather than vi settings
 set pastetoggle=<F10>               " Enable past insert mode with F10
 set scrolloff=5                     " Display at least 5 lines above and below the cursor
 set t_ut=                           " Disable background color erase for tmux/screen
+set splitbelow                      " Open splits as a bottom pane
 
 " Appearance
 syntax on                           " Enable syntax highlighting
@@ -40,8 +41,6 @@ let g:fzf_colors =
     \ 'prompt':   ['fg', 'fzfPrompt'] }
 
 " Remappings
-noremap <Leader>t :FZF<CR>
-noremap <Leader>b :Buffers<CR>
 nnoremap <CR> :noh<CR><CR>
 noremap <Leader>n :set number! relativenumber!<CR>
 map Y y$
@@ -69,11 +68,19 @@ function! InsertTabWrapper()
     if !col || getline('.')[col - 1] !~ '\k'
         return "\<tab>"
     else
-        return "\<c-p>"
+        return "\<C-p>"
     endif
 endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<CR>
-inoremap <s-tab> <c-n>
+inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
+inoremap <S-Tab> <C-n>
+
+" Get syntax group under cursor
+nnoremap <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+" Must be set before ALE is loaded
+let g:ale_completion_enabled = 1
+let g:ale_completion_delay = 1500
+" set omnifunc=ale#completion#OmniFunc
 
 " Pathogen plugin manager
 " https://github.com/tpope/vim-pathogen
@@ -92,17 +99,15 @@ execute pathogen#infect()
   noremap <Leader>l :ALEToggle<CR>
   noremap <Leader>j :ALENext<CR>
   noremap <Leader>k :ALEPrevious<CR>
-  let g:ale_sign_error='xx'
+  noremap <Leader>d :ALEGoToDefinition<CR>
+  noremap <Leader>f :ALEFindReferences -quickfix<CR>
+  noremap <Leader>r :ALERename<CR>
+  noremap <Leader>i :ALEHover<CR>
+  let g:ale_sign_error='XX'
   let g:ale_sign_warning='!!'
-  let g:ale_linters =
-        \ { 'javascript': ['eslint'],
-          \ 'haskell':    ['hlint'] }
-  let g:ale_fixers =
-        \ {
-          \ 'haskell':    ['ormolu'] }
-  let g:ale_haskell_hlint_options = '--refactor'
-  let g:ale_haskell_ormolu_executable="fourmolu"
+  let g:ale_virtualtext_cursor = 'current'
   let g:ale_fix_on_save = 1
+  let g:ale_hover_to_preview = 1
 
   " comfortable-motion (smooth scroll)
   let g:comfortable_motion_no_default_key_mappings = 1
@@ -112,30 +117,15 @@ execute pathogen#infect()
 
   " fugitive
   noremap <Leader>g :Git blame<CR>
-  noremap <Leader>G :Gedit<CR>
 
   " fzf.vim
   noremap <Leader>a :Rg<Space>
   noremap <Leader>s :Rg <C-R><C-W>
-  let g:fzf_preview_window = ['right:40%:hidden', 'ctrl-/']
+  noremap <Leader>t :FZF<CR>
+  noremap <Leader>b :Buffers<CR>
+  let g:fzf_preview_window = ['right:60%:hidden', 'ctrl-/']
+  " Don't shell escape arguments passed to :Rg
+  command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".<q-args>, 1, <bang>0)
 
-  " vim-ledger
-  function! LedgerAlignLastN()
-    normal my
-    $-1000,$LedgerAlign
-    normal 'y
-  endfunction
-  au FileType ledger autocmd BufWritePre *.journal call LedgerAlignLastN()
-  au FileType ledger noremap { ?^\d<CR>
-  au FileType ledger noremap } /^\d<CR>
-  au FileType ledger set nohlsearch
-  nnoremap <silent> <S-l> :call ledger#transaction_state_toggle(line('.'), ' *?!')<CR>
-
-  " vim-go
-  let g:go_def_mode='gopls'
-  let g:go_info_mode='gopls'
-  let g:go_list_height=5
-  let g:go_list_autoclose=1
-  let g:go_list_type ="quickfix"
-  let g:go_imports_autosave=0
-  noremap <Leader>d :GoDef<CR>
+  " vim-go-syntax
+  let g:go_highlight_function_calls = 0
