@@ -13,7 +13,7 @@ nnoremap <Leader>a :action FindInPath<CR>
 nnoremap <Leader>t :action GotoClass<CR>
 nnoremap <Leader>d :action GotoDeclaration<CR>
 nnoremap <Leader>i :action GotoImplementation<CR>
-nnoremap <Leader>f :action FindUsages<CR>
+nnoremap <Leader>u :action FindUsages<CR>
 nnoremap <Leader>g :action Annotate<CR>
 nnoremap <Leader>p :action PinActiveEditorTab<CR>
 nnoremap <C-t> :action Back<CR>

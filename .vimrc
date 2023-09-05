@@ -100,7 +100,7 @@ execute pathogen#infect()
   noremap <Leader>j :ALENext<CR>
   noremap <Leader>k :ALEPrevious<CR>
   noremap <Leader>d :ALEGoToDefinition<CR>
-  noremap <Leader>f :ALEFindReferences -quickfix<CR>
+  noremap <Leader>u :ALEFindReferences -quickfix<CR>
   noremap <Leader>r :ALERename<CR>
   noremap <Leader>i :ALEHover<CR>
   let g:ale_sign_error='XX'
