@@ -123,9 +123,11 @@ execute pathogen#infect()
   noremap <Leader>s :Rg <C-R><C-W>
   noremap <Leader>t :FZF<CR>
   noremap <Leader>b :Buffers<CR>
-  let g:fzf_preview_window = ['right:60%:hidden', 'ctrl-/']
+  let g:fzf_vim = {}
+  let g:fzf_vim.preview_window = ['hidden,right,60%', 'ctrl-/']
   " Don't shell escape arguments passed to :Rg
-  command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".<q-args>, 1, <bang>0)
+  command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".<q-args>, fzf#vim#with_preview(), <bang>0)
+
 
   " vim-go-syntax
   let g:go_highlight_function_calls = 0
