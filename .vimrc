@@ -134,18 +134,7 @@ execute pathogen#infect()
       \ '-bazel-testlogs',
       \ '-bazel-source',
     \ ],
-    \ 'ui.completion.usePlaceholders': v:true,
-    \ 'ui.semanticTokens': v:true,
-    \ 'ui.codelenses': {
-      \ 'gc_details': v:false,
-      \ 'regenerate_cgo': v:false,
-      \ 'generate': v:false,
-      \ 'test': v:false,
-      \ 'tidy': v:false,
-      \ 'upgrade_dependency': v:false,
-      \ 'vendor': v:false,
-    \ },
-  }
+  \ }
 
   " comfortable-motion (smooth scroll)
   let g:comfortable_motion_no_default_key_mappings = 1
