@@ -82,6 +82,24 @@ let g:ale_completion_enabled = 1
 let g:ale_completion_delay = 1500
 " set omnifunc=ale#completion#OmniFunc
 
+" https://github.com/bazelbuild/rules_go/blob/master/docs/go/editors/vim.md
+function! MaybeSetGoPackagesDriver()
+  " If in a bazel project directory with a WORKSPACE file,
+  " set GOPACKAGESDRIVER ./tools/gopackagesdriver.sh.
+  let l:dir = getcwd()
+  while l:dir != "/"
+    if filereadable(simplify(join([l:dir, 'WORKSPACE'], '/')))
+      let l:maybe_driver_path = simplify(join([l:dir, 'tools/gopackagesdriver.sh'], '/'))
+      if filereadable(l:maybe_driver_path)
+        let $GOPACKAGESDRIVER = l:maybe_driver_path
+        break
+      end
+    end
+    let l:dir = fnamemodify(l:dir, ':h')
+  endwhile
+endfunction
+call MaybeSetGoPackagesDriver()
+
 " Pathogen plugin manager
 " https://github.com/tpope/vim-pathogen
 execute pathogen#infect()
@@ -108,6 +126,26 @@ execute pathogen#infect()
   let g:ale_virtualtext_cursor = 'current'
   let g:ale_fix_on_save = 1
   let g:ale_hover_to_preview = 1
+  " https://github.com/golang/tools/blob/master/gopls/doc/settings.md
+  let g:ale_go_gopls_init_options = {
+    \ 'build.directoryFilters': [
+      \ '-bazel-bin',
+      \ '-bazel-out',
+      \ '-bazel-testlogs',
+      \ '-bazel-source',
+    \ ],
+    \ 'ui.completion.usePlaceholders': v:true,
+    \ 'ui.semanticTokens': v:true,
+    \ 'ui.codelenses': {
+      \ 'gc_details': v:false,
+      \ 'regenerate_cgo': v:false,
+      \ 'generate': v:false,
+      \ 'test': v:false,
+      \ 'tidy': v:false,
+      \ 'upgrade_dependency': v:false,
+      \ 'vendor': v:false,
+    \ },
+  }
 
   " comfortable-motion (smooth scroll)
   let g:comfortable_motion_no_default_key_mappings = 1
