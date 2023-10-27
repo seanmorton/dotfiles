@@ -54,3 +54,5 @@ function csvcat {
 
 # completion
 source <(kubectl completion zsh)
+
+eval "$(direnv hook zsh)"
