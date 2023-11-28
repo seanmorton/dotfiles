@@ -1,4 +1,5 @@
 export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/go/bin"
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export EDITOR="vim"
@@ -7,6 +8,7 @@ GPG_TTY=$(tty)
 export GPG_TTY
 export SOPS_PGP_FP=
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+export DIRENV_LOG_FORMAT=
 
 # prompt
 autoload -U colors && colors
@@ -17,10 +19,11 @@ bindkey -v
 bindkey '^r' history-incremental-search-backward
 
 # git
-alias g="git"
-alias rebase="git checkout main && git pull && git checkout - && git rebase main"
+alias pwnbranches="git branch > /tmp/branches && vim /tmp/branches && xargs git branch -D < /tmp/branches"
+alias g="git "
+alias wow="git status"
 alias yolo="git commit --no-verify"
-alias pwnbranches="git branch > /tmp/branches && vim /tmp/branches && xargs git branch -D < /tmp/branches && xargs git push --delete origin < /tmp/branches"
+alias rebase="git checkout main && git pull && git checkout - && git rebase main"
 
 # shortcuts
 alias ag="rg -i"
@@ -32,14 +35,18 @@ alias python="python3"
 alias pip="pip3"
 alias acc="cd ~/src/accounting"
 alias k="kubectl "
+alias mk="minikube kubectl --"
 alias kset="kubectl config set-context --current "
 alias gcp="gcloud "
 alias tf="terraform "
 alias src="cd ~/src/source"
 alias todo="vim ~/TODO"
 
-# git completion and current branch in right prompt
+# setup completion
+fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit
+
+# git completion and current branch in right prompt
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
