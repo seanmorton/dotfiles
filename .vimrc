@@ -146,6 +146,18 @@ execute pathogen#infect()
   " fugitive
   noremap <Leader>g :Git blame<CR>
 
+  " vim-ledger
+  function! LedgerAlignLastN()
+    normal my
+    $-1000,$LedgerAlign
+    normal 'y
+  endfunction
+  au FileType ledger autocmd BufWritePre *.journal call LedgerAlignLastN()
+  au FileType ledger noremap { ?^\d<CR>
+  au FileType ledger noremap } /^\d<CR>
+  au FileType ledger set nohlsearch
+  nnoremap <silent> <S-l> :call ledger#transaction_state_toggle(line('.'), ' *?!')<CR>
+
   " fzf.vim
   noremap <Leader>a :Rg<Space>
   noremap <Leader>s :Rg <C-R><C-W>
@@ -155,7 +167,6 @@ execute pathogen#infect()
   let g:fzf_vim.preview_window = ['hidden,right,60%', 'ctrl-/']
   " Don't shell escape arguments passed to :Rg
   command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".<q-args>, fzf#vim#with_preview(), <bang>0)
-
 
   " vim-go-syntax
   let g:go_highlight_function_calls = 0

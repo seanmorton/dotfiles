@@ -19,11 +19,20 @@ bindkey -v
 bindkey '^r' history-incremental-search-backward
 
 # git
-alias pwnbranches="git branch > /tmp/branches && vim /tmp/branches && xargs git branch -D < /tmp/branches"
 alias g="git "
-alias wow="git status"
 alias yolo="git commit --no-verify"
 alias rebase="git checkout main && git pull && git checkout - && git rebase main"
+alias pwnbranches="git branch > /tmp/branches && vim /tmp/branches && xargs git branch -D < /tmp/branches"
+
+# git doge
+alias amaze="doge"
+alias such="git"
+alias very="git"
+alias many="git"
+alias much="git"
+alias so="git"
+alias the="git"
+alias wow="git status"
 
 # shortcuts
 alias ag="rg -i"
@@ -39,7 +48,6 @@ alias mk="minikube kubectl --"
 alias kset="kubectl config set-context --current "
 alias gcp="gcloud "
 alias tf="terraform "
-alias src="cd ~/src/source"
 alias todo="vim ~/TODO"
 
 # setup completion
