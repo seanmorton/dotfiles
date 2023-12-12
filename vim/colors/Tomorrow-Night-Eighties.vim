@@ -9,6 +9,7 @@ let s:selection = "515151"
 let s:foldbg= "313131"
 let s:line = "393939"
 let s:comment = "999999"
+let s:white = "ffffff"
 let s:red = "f2777a"
 let s:orange = "f99157"
 let s:yellow = "ffcc66"
@@ -234,7 +235,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
 	" Vim Highlighting
 	call <SID>X("Normal", s:foreground, "", "")
-	call <SID>X("LineNr", s:selection, "", "")
+	call <SID>X("LineNr", s:comment, "", "")
+	call <SID>X("CursorLineNr", s:comment, "", "")
 	call <SID>X("NonText", s:selection, "", "")
 	call <SID>X("SpecialKey", s:selection, "", "")
 	call <SID>X("Search", "", s:yellow, "")
@@ -270,17 +272,20 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Statement", s:foreground, "", "")
 	call <SID>X("Conditional", s:foreground, "", "")
 	call <SID>X("Repeat", s:foreground, "", "")
-	call <SID>X("Structure", s:purple, "", "")
+	call <SID>X("Structure", s:orange, "", "")
 	call <SID>X("Function", s:blue, "", "")
 	call <SID>X("Constant", s:orange, "", "")
 	call <SID>X("String", s:green, "", "")
 	call <SID>X("Special", s:foreground, "", "")
 	call <SID>X("PreProc", s:purple, "", "")
-	call <SID>X("Operator", s:aqua, "", "none")
+	call <SID>X("Operator", s:blue, "", "none")
 	call <SID>X("Type", s:blue, "", "none")
 	call <SID>X("Define", s:purple, "", "none")
 	call <SID>X("Include", s:blue, "", "")
-	"call <SID>X("Ignore", "666666", "", "")
+	call <SID>X("Label", s:green, "", "")
+	call <SID>X("error", s:white, "", "")
+	call <SID>X("SpellBad", s:white, "", "")
+	call <SID>X("SpellCap", s:white, s:orange, "")
 
 	" Vim Highlighting
 	call <SID>X("vimCommand", s:red, "", "none")
@@ -319,7 +324,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("pythonException", s:purple, "", "")
 	call <SID>X("pythonFunction", s:blue, "", "")
 
-	" Go Highlighting
+	" Go Highlighting (with vim-go-syntax)
 	call <SID>X("goStatement", s:purple, "", "")
 	call <SID>X("goConditional", s:purple, "", "")
 	call <SID>X("goRepeat", s:purple, "", "")
@@ -327,6 +332,11 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("goDeclaration", s:blue, "", "")
 	call <SID>X("goConstants", s:yellow, "", "")
 	call <SID>X("goBuiltins", s:orange, "", "")
+	call <SID>X("goFuncDecl", s:purple, "", "")
+	call <SID>X("goVarDecl", s:purple, "", "")
+	call <SID>X("goConstDecl", s:purple, "", "")
+	call <SID>X("goParam", s:orange, "", "")
+	call <SID>X("goKeywords", s:purple, "", "")
 
 	" CoffeeScript Highlighting
 	call <SID>X("coffeeKeyword", s:purple, "", "")
@@ -335,10 +345,23 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	" JavaScript Highlighting
 	call <SID>X("javaScriptBraces", s:foreground, "", "")
 	call <SID>X("javaScriptFunction", s:purple, "", "")
+	call <SID>X("javaScriptReturn", s:purple, "", "")
 	call <SID>X("javaScriptConditional", s:purple, "", "")
+	call <SID>X("javaScriptConditionalElse", s:purple, "", "")
 	call <SID>X("javaScriptRepeat", s:purple, "", "")
+	call <SID>X("javaScriptBranch", s:purple, "", "")
+	call <SID>X("javaScriptSwitch", s:purple, "", "")
+	call <SID>X("javaScriptCase", s:purple, "", "")
+	call <SID>X("javaScriptFuncKeyword", s:purple, "", "")
+	call <SID>X("javaScriptClassKeyword", s:purple, "", "")
+	call <SID>X("javaScriptClassName", s:red, "", "")
+	call <SID>X("javaScriptClassSuper", s:blue, "", "")
 	call <SID>X("javaScriptNumber", s:orange, "", "")
 	call <SID>X("javaScriptMember", s:orange, "", "")
+	call <SID>X("javaScriptOpSymbols", s:aqua, "", "")
+	call <SID>X("javaScriptArrowFunc", s:aqua, "", "")
+	call <SID>X("javaScriptDotNotation", s:blue, "", "")
+	call <SID>X("javaScriptObjectLiteral", s:yellow, "", "")
 
 	" HTML Highlighting
 	call <SID>X("htmlTag", s:red, "", "")
@@ -349,6 +372,14 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	" Diff Highlighting
 	call <SID>X("diffAdded", s:green, "", "")
 	call <SID>X("diffRemoved", s:red, "", "")
+
+	" FZF Highlighting
+	call <SID>X("fzfHighlight", s:yellow, "", "")
+	call <SID>X("fzfCurrLine", s:blue, s:window, "")
+	call <SID>X("fzfPointer", s:blue, "", "")
+	call <SID>X("fzfSpinner", s:yellow, "", "")
+	call <SID>X("fzfInfo", s:yellow, "", "")
+	call <SID>X("fzfPrompt", s:green, "", "")
 
 	" Delete Functions
 	delf <SID>X
