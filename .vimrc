@@ -6,6 +6,7 @@ set pastetoggle=<F10>               " Enable past insert mode with F10
 set scrolloff=5                     " Display at least 5 lines above and below the cursor
 set t_ut=                           " Disable background color erase for tmux/screen
 set splitbelow                      " Open splits as a bottom pane
+set wildignore+=*.swp                "Ignore vim swap files
 
 " Appearance
 syntax on                           " Enable syntax highlighting
@@ -109,6 +110,7 @@ execute pathogen#infect()
   " NERDTree
   map <C-b> :NERDTreeToggle %<CR>
   let NERDTreeShowHidden=1
+  let NERDTreeRespectWildIgnore=1
 
   " vim-terraform
   let g:terraform_align=1
