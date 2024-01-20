@@ -1,3 +1,13 @@
+# man zshparam
+export HISTFILE=~/.histfile
+export HISTSIZE=10000
+export SAVEHIST=10000
+# man zshoptions
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/go/bin"
 export CLICOLOR=1
@@ -9,6 +19,7 @@ export GPG_TTY
 export SOPS_PGP_FP=
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 export DIRENV_LOG_FORMAT=
+export KUBECONFIG="$HOME/.kube/config"
 
 # prompt
 autoload -U colors && colors
@@ -46,6 +57,7 @@ alias acc="cd ~/src/accounting"
 alias k="kubectl "
 alias mk="minikube kubectl --"
 alias kset="kubectl config set-context --current "
+alias pods="watch -n 1 kubectl get pods"
 alias gcp="gcloud "
 alias tf="terraform "
 alias todo="vim ~/TODO"
