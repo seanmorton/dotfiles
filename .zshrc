@@ -59,6 +59,7 @@ alias mk="minikube kubectl --"
 alias kset="kubectl config set-context --current "
 alias pods="watch -n 1 kubectl get pods"
 alias gcp="gcloud "
+alias tf="terraform "
 alias todo="vim ~/TODO"
 
 # setup completion
