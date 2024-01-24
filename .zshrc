@@ -59,12 +59,18 @@ alias mk="minikube kubectl --"
 alias kset="kubectl config set-context --current "
 alias pods="watch -n 1 kubectl get pods"
 alias gcp="gcloud "
-alias tf="terraform "
 alias todo="vim ~/TODO"
 
 # setup completion
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit
+
+# install with $(brew --prefix)/opt/fzf/install
+# ctrl-r: search $HISTFILE
+# ctrl-t: search for a file under cwd
+# alt-c: search for a directory name under cwd, then cd into it
+# ls ~/Downloads/**<TAB>: filename autocomplete
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # git completion and current branch in right prompt
 autoload -Uz vcs_info
