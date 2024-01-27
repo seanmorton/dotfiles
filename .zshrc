@@ -66,6 +66,13 @@ alias todo="vim ~/TODO"
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit
 
+# install with $(brew --prefix)/opt/fzf/install
+# ctrl-r: search $HISTFILE
+# ctrl-t: search for a file under cwd
+# alt-c: search for a directory name under cwd, then cd into it
+# ls ~/Downloads/**<TAB>: filename autocomplete
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # git completion and current branch in right prompt
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
