@@ -1,3 +1,7 @@
+/**
+ * NOTE: be sure to set toolkit.legacyUserProfileCustomizations.stylesheets=true in about:config
+ */
+
 /* Hide the "title changed" notification dot on pinned tabs */
 .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged] {
   background-image: none !important;

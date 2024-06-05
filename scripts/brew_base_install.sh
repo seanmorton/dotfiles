@@ -1,10 +1,12 @@
 #!/bin/bash
 brew install curl
+brew install diskonaut
 brew install direnv
 brew install fd
 brew install fzf
 brew install git
 brew install jenv
+brew install kubecolor
 brew install ripgrep
 brew install tmux
 brew install vim
