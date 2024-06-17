@@ -1,7 +1,10 @@
 [core]
 	excludesfile = /Users/seanmorton/.gitignore
-[user]
-	name = Sean Morton
-	email = seanmorton@hey.com
 [push]
   autoSetupRemote = true
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[rebase]
+	autosquash = true
