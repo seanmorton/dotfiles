@@ -32,7 +32,7 @@ bindkey '^r' history-incremental-search-backward
 # git
 alias g="git "
 alias yolo="git commit --no-verify"
-alias rebase="git checkout main && git pull && git checkout - && git rebase main"
+alias rebasemain="git checkout main && git pull && git checkout - && git rebase main"
 alias pwnbranches="git branch > /tmp/branches && vim /tmp/branches && xargs git branch -D < /tmp/branches"
 
 # git doge
@@ -48,6 +48,7 @@ alias wow="git status"
 # shortcuts
 alias ag="rg -i"
 alias ll="ls -l"
+alias watch="watch " # so `watch {alias command}` works
 alias cputemp="watch -n3 --color istats"
 alias hl="hledger --strict"
 alias reload="source ~/.zshrc"
@@ -55,6 +56,7 @@ alias python="python3"
 alias pip="pip3"
 alias acc="cd ~/src/accounting"
 alias k="kubectl "
+alias ks="switch "
 alias mk="minikube kubectl --"
 alias kset="kubectl config set-context --current "
 alias pods="watch -n 1 kubectl get pods"
