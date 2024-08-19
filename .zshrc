@@ -14,6 +14,7 @@ export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export EDITOR="vim"
 export XDG_CONFIG_HOME=/Users/<VAR_USERNAME>/.config
+export RIPGREP_CONFIG_PATH=~/.rgrc
 GPG_TTY=$(tty)
 export GPG_TTY
 export SOPS_PGP_FP=
