@@ -44,11 +44,14 @@ let g:fzf_colors =
 
 " Remappings
 nnoremap <CR> :noh<CR><CR>
-noremap <Leader>n :set number! relativenumber!<CR>
+nmap <Leader>n :set number! relativenumber!<CR>
 map Y y$
+map <C-y> "+y
+map <C-p> "+p
+
 
 " [ctags] open definition vertical split
-map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+nmap <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 set tags+=gems.tags
 
 if has("autocmd")
@@ -81,7 +84,7 @@ nnoremap <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> 
 
 " Must be set before ALE is loaded
 let g:ale_completion_enabled = 1
-let g:ale_completion_delay = 1500
+let g:ale_completion_delay = 1000
 " set omnifunc=ale#completion#OmniFunc
 
 " https://github.com/bazelbuild/rules_go/blob/master/docs/go/editors/vim.md
