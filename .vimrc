@@ -45,6 +45,7 @@ let g:fzf_colors =
 " Remappings
 nnoremap <CR> :noh<CR><CR>
 nmap <Leader>n :set number! relativenumber!<CR>
+nmap <Leader>w :set nowrap!<CR>
 map Y y$
 map <C-y> "+y
 map <C-p> "+p
