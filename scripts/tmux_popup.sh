@@ -1,7 +1,7 @@
 #!/bin/bash
 # Thanks to https://blog.meain.io/2020/tmux-flating-scratch-terminal/
-width=${2:-85%}
-height=${2:-85%}
+width=${2:-75%}
+height=${2:-75%}
 if [ "$(tmux display-message -p -F "#{session_name}")" = "float" ];then
     tmux detach-client
 else
