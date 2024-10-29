@@ -7,7 +7,7 @@ set pastetoggle=<F10>               " Enable past insert mode with F10
 set scrolloff=5                     " Display at least 5 lines above and below the cursor
 set splitbelow                      " Open splits as a bottom pane
 set t_ut=                           " Disable background color erase for tmux/screen
-set wildignore+=*.swp               " Ignore vim swap files
+set wildignore+=*.swp,*.DS_Store    " Ignore hidden files
 set mouse=a                         " Enable mouse in all modes
 
 " Appearance
@@ -106,6 +106,8 @@ function! MaybeSetGoPackagesDriver()
   endwhile
 endfunction
 call MaybeSetGoPackagesDriver()
+
+au BufRead,BufNewFile *.templ set syntax=go
 
 " Pathogen plugin manager
 " https://github.com/tpope/vim-pathogen
