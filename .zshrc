@@ -88,6 +88,11 @@ zstyle ':vcs_info:git:*' formats '%b'
 function csvcat {
   cat "$@" | column -t -s,
 }
+# thanks to https://github.com/aws/aws-cli/issues/6979#issuecomment-1355545535
+function awsctx() {
+  export AWS_PROFILE="$(aws configure list-profiles | fzf)"
+  echo "Switched to profile ""$AWS_PROFILE""."
+}
 
 # completion
 source <(kubectl completion zsh)
