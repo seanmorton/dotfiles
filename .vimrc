@@ -66,6 +66,9 @@ if has("autocmd")
 
   " Always start on the first line of commit files
   autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
+
+  " Enable spell check for md/txt
+  autocmd FileType markdown,text setlocal spell
 endif
 
 " Multipurpose tab key
