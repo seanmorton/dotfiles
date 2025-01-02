@@ -64,6 +64,7 @@ alias pods="watch -n 1 kubectl get pods"
 alias gcp="gcloud "
 alias tf="terraform "
 alias todo="vim ~/TODO"
+alias diff="git tui diff origin/main"
 
 # setup completion
 fpath=(~/.zsh/completion $fpath)
