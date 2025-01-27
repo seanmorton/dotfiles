@@ -9,6 +9,7 @@ set splitbelow                      " Open splits as a bottom pane
 set t_ut=                           " Disable background color erase for tmux/screen
 set wildignore+=*.swp,*.DS_Store    " Ignore hidden files
 set mouse=a                         " Enable mouse in all modes
+set termguicolors                   " 24-bit colors
 
 " Appearance
 syntax on                           " Enable syntax highlighting
@@ -32,7 +33,7 @@ set tabstop=2                       " Width of a tab
 
 " Configure FZF
 set rtp+=/opt/homebrew/bin/fzf
-let g:fzf_layout = { 'down': '20%' }
+let g:fzf_layout = { 'down': '30%' }
 let g:fzf_colors =
   \ { 'hl':       ['fg', 'fzfHighlight'],
     \ 'hl+':      ['fg', 'fzfHighlight'],
