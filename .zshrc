@@ -49,7 +49,7 @@ alias wow="git status"
 # shortcuts
 alias ag="rg -i"
 alias ll="ls -l"
-alias watch="watch " # so `watch {alias command}` works
+alias watch="watch -n1 " # so `watch {alias command}` works
 alias cputemp="watch -n3 --color istats"
 alias hl="hledger --strict"
 alias reload="source ~/.zshrc"
@@ -64,7 +64,7 @@ alias pods="watch -n 1 kubectl get pods"
 alias gcp="gcloud "
 alias tf="terraform "
 alias todo="vim ~/TODO"
-alias diff="git tui diff origin/main"
+alias gdiff="git tui diff origin/main"
 
 # setup completion
 fpath=(~/.zsh/completion $fpath)
