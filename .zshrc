@@ -22,10 +22,24 @@ export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 export DIRENV_LOG_FORMAT=
 export KUBECONFIG="$HOME/.kube/config"
 
+# Thanks https://github.com/aws/aws-cli/issues/6979#issuecomment-1355545535
+function awsctx() {
+  export AWS_PROFILE="$(aws configure list-profiles | fzf)"
+  echo "Switched to profile ""$AWS_PROFILE""."
+}
+
+# git completion and current branch in right prompt
+autoload -Uz vcs_info
+zstyle ':vcs_info:git:*' formats '%b'
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+
 # prompt
 autoload -U colors && colors
 #PROMPT="%{$fg[yellow]%}% [%{$reset_color%}% %m%{$fg[yellow]%}% |%{$reset_color%}% %D{%H:%M:%S}%{$fg[yellow]%}% ] %{$reset_color%}% %{$fg[green]%}% $ %{$reset_color%}%"
 PROMPT="%{$fg[magenta]%}% [%{$reset_color%}% %1d%{$fg[magenta]%}% |%{$reset_color%}% %D{%H:%M:%S}%{$fg[magenta]%}% ] %{$reset_color%}% %{$fg[cyan]%}% $ %{$reset_color%}%"
+RPROMPT=\$vcs_info_msg_0_
 
 bindkey -v
 bindkey '^r' history-incremental-search-backward
@@ -57,18 +71,18 @@ alias python="python3"
 alias pip="pip3"
 alias acc="cd ~/src/accounting"
 alias k="kubectl "
-alias ks="switch "
 alias mk="minikube kubectl --"
 alias kset="kubectl config set-context --current "
 alias pods="watch -n 1 kubectl get pods"
 alias gcp="gcloud "
 alias tf="terraform "
 alias todo="vim ~/TODO"
-alias gdiff="git tui diff origin/main"
+alias gdiff="git tui diff"
 
 # setup completion
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit
+source ~/src/aloxaf/fzf-tab/fzf-tab.plugin.zsh
 
 # install with $(brew --prefix)/opt/fzf/install
 # ctrl-r: search $HISTFILE
