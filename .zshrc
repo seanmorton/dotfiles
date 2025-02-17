@@ -77,6 +77,7 @@ alias gdiff="git tui diff"
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit
 source ~/src/aloxaf/fzf-tab/fzf-tab.plugin.zsh
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
 # install with $(brew --prefix)/opt/fzf/install
 # ctrl-r: search $HISTFILE
