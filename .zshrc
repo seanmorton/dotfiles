@@ -22,12 +22,6 @@ export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 export DIRENV_LOG_FORMAT=
 export KUBECONFIG="$HOME/.kube/config"
 
-# Thanks https://github.com/aws/aws-cli/issues/6979#issuecomment-1355545535
-function awsctx() {
-  export AWS_PROFILE="$(aws configure list-profiles | fzf)"
-  echo "Switched to profile ""$AWS_PROFILE""."
-}
-
 # git completion and current branch in right prompt
 autoload -Uz vcs_info
 zstyle ':vcs_info:git:*' formats '%b'
@@ -90,14 +84,6 @@ source ~/src/aloxaf/fzf-tab/fzf-tab.plugin.zsh
 # alt-c: search for a directory name under cwd, then cd into it
 # ls ~/Downloads/**<TAB>: filename autocomplete
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# git completion and current branch in right prompt
-autoload -Uz vcs_info
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
-setopt prompt_subst
-RPROMPT=\$vcs_info_msg_0_
-zstyle ':vcs_info:git:*' formats '%b'
 
 # utilities
 function csvcat {
