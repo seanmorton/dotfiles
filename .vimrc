@@ -52,7 +52,6 @@ map Y y$
 map <C-y> "+y
 map <C-p> "+p
 
-
 " [ctags] open definition vertical split
 nmap <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 set tags+=gems.tags
