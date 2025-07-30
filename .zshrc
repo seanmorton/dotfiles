@@ -72,6 +72,7 @@ alias gcp="gcloud "
 alias tf="terraform "
 alias todo="vim ~/TODO"
 alias gdiff="git tui diff"
+alias yess='yq -C eval-all | less -R'
 
 # setup completion
 fpath=(~/.zsh/completion $fpath)
