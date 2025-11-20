@@ -2,6 +2,7 @@ user_pref("app.shield.optoutstudies.enabled", true);
 user_pref("browser.aboutConfig.showWarning", false);
 user_pref("browser.sessionStore.warnOnQuit", true);
 user_pref("browser.urlbar.autofill", true);
+user_pref("browser.urlbar.contextualSearch.enabled", false);
 user_pref("browser.urlbar.sponsoredTopSites", false);
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
