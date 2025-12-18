@@ -91,14 +91,13 @@ nnoremap <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> 
 let g:ale_close_preview_on_insert = 1
 let g:ale_completion_delay = 1000
 let g:ale_completion_enabled = 1
-let g:ale_cursor_detail = 1           " autorun ALEDetail when cursor moves to lines with issues
 let g:ale_echo_cursor = 0             " don't echo to the message line
 let g:ale_fix_on_save = 1
 let g:ale_floating_preview = 1        " ALEDetail + ALEHover go to floating preview
 let g:ale_floating_window_border = [] " no border
 let g:ale_sign_error='XX'
 let g:ale_sign_warning='!!'
-let g:ale_virtualtext_cursor = 0      " don't show any info inline of the cursor line
+let g:ale_virtualtext_cursor = 1      " only show on current line not all at once
 
 " https://github.com/golang/tools/blob/master/gopls/doc/settings.md
 let g:ale_go_gopls_init_options = {
