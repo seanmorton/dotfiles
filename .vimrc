@@ -88,9 +88,10 @@ inoremap <S-Tab> <C-n>
 nnoremap <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Some settings need to be set before ALE is loaded, so set them all here
-let g:ale_cursor_detail = 1           " autorun ALEDetail when cursor moves to lines with issues
+let g:ale_close_preview_on_insert = 1
 let g:ale_completion_delay = 1000
 let g:ale_completion_enabled = 1
+let g:ale_cursor_detail = 1           " autorun ALEDetail when cursor moves to lines with issues
 let g:ale_echo_cursor = 0             " don't echo to the message line
 let g:ale_fix_on_save = 1
 let g:ale_floating_preview = 1        " ALEDetail + ALEHover go to floating preview
