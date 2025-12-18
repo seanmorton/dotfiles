@@ -87,11 +87,27 @@ inoremap <S-Tab> <C-n>
 " Get syntax group under cursor
 nnoremap <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-" Must be set before ALE is loaded
-let g:ale_completion_enabled = 1
+" Some settings need to be set before ALE is loaded, so set them all here
+let g:ale_cursor_detail = 1           " autorun ALEDetail when cursor moves to lines with issues
 let g:ale_completion_delay = 1000
-" set omnifunc=ale#completion#OmniFunc
+let g:ale_completion_enabled = 1
+let g:ale_echo_cursor = 0             " don't echo to the message line
+let g:ale_fix_on_save = 1
+let g:ale_floating_preview = 1        " ALEDetail + ALEHover go to floating preview
+let g:ale_floating_window_border = [] " no border
+let g:ale_sign_error='XX'
+let g:ale_sign_warning='!!'
+let g:ale_virtualtext_cursor = 0      " don't show any info inline of the cursor line
 
+" https://github.com/golang/tools/blob/master/gopls/doc/settings.md
+let g:ale_go_gopls_init_options = {
+  \ 'build.directoryFilters': [
+    \ '-bazel-bin',
+    \ '-bazel-out',
+    \ '-bazel-testlogs',
+    \ '-bazel-source',
+  \ ],
+\ }
 " https://github.com/bazelbuild/rules_go/blob/master/docs/go/editors/vim.md
 function! MaybeSetGoPackagesDriver()
   " If in a bazel project directory with a WORKSPACE file,
@@ -136,20 +152,6 @@ execute pathogen#infect()
   noremap <Leader>u :ALEFindReferences -quickfix<CR>
   noremap <Leader>r :ALERename<CR>
   noremap <Leader>h :ALEHover<CR>
-  let g:ale_sign_error='XX'
-  let g:ale_sign_warning='!!'
-  let g:ale_virtualtext_cursor = 'current'
-  let g:ale_fix_on_save = 1
-  let g:ale_hover_to_preview = 1
-  " https://github.com/golang/tools/blob/master/gopls/doc/settings.md
-  let g:ale_go_gopls_init_options = {
-    \ 'build.directoryFilters': [
-      \ '-bazel-bin',
-      \ '-bazel-out',
-      \ '-bazel-testlogs',
-      \ '-bazel-source',
-    \ ],
-  \ }
 
   " comfortable-motion (smooth scroll)
   let g:comfortable_motion_no_default_key_mappings = 1
