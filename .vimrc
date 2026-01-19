@@ -15,7 +15,7 @@ set termguicolors                   " 24-bit colors
 set autocomplete
 set autocompletedelay=1000
 set completeopt=menu,menuone,popup,noselect,fuzzy
-set iskeyword+=.
+set iskeyword+=.,:
 set omnifunc=ale#completion#OmniFunc
 
 " Appearance
