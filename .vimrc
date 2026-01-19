@@ -26,7 +26,7 @@ set smartcase                       " Unless capital letter specified
 set autoindent                      " Indent to same level of previous line
 set expandtab                       " Use spaces instead of tabs
 set shiftwidth=2                    " Width for auto tab operations
-set smartindent                     " Add indents to nested statements
+set smartindent                     " Add indents to nested statements (curlies {})
 set smarttab                        " Handle tabs at beginning of lines better
 set softtabstop=2                   " Width of tab when in insert mode
 set tabstop=2                       " Width of a tab
@@ -163,16 +163,14 @@ execute pathogen#infect()
   noremap <Leader>g :Git blame<CR>
 
   " vim-ledger
-  function! LedgerAlignLastN()
-    normal my
-    $-1000,$LedgerAlign
-    normal 'y
-  endfunction
-  au FileType ledger autocmd BufWritePre *.journal call LedgerAlignLastN()
+  au FileType ledger au! BufWritePre <buffer> call ledger#align_commodity_buffer()
   au FileType ledger noremap { ?^\d<CR>
   au FileType ledger noremap } /^\d<CR>
   au FileType ledger set nohlsearch
   nnoremap <silent> <S-l> :call ledger#transaction_state_toggle(line('.'), ' *?!')<CR>
+  let g:ledger_bin = 'hledger'
+  let g:ledger_extra_options = '--strict'
+  let g:ledger_fuzzy_account_completion = 1
 
   " fzf.vim
   noremap <Leader>a :Rg<Space>
