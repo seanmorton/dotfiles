@@ -26,6 +26,7 @@ set ruler                           " Show row,column numbers
 
 " Searching
 set hlsearch                        " Highlight search results
+set incsearch                       " Highlight as you type
 set ignorecase                      " Ignore case while searching
 set smartcase                       " Unless capital letter specified
 
@@ -37,6 +38,12 @@ set smartindent                     " Add indents to nested statements (curlies 
 set smarttab                        " Handle tabs at beginning of lines better
 set softtabstop=2                   " Width of tab when in insert mode
 set tabstop=2                       " Width of a tab
+
+" Undo history
+set undofile
+set undodir=~/.vim/undo
+set undolevels=500
+set undoreload=500
 
 " Configure FZF
 set rtp+=/opt/homebrew/bin/fzf
@@ -56,8 +63,13 @@ nnoremap <CR> :noh<CR><CR>
 nmap <Leader>n :set number! relativenumber!<CR>
 nmap <Leader>w :set nowrap!<CR>
 map Y y$
+
+" Copy paste from native clipboard
 map <C-y> "+y
 map <C-p> "+p
+
+" highlights words matching the word under the cursor with F8
+nnoremap <F8> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 " [ctags] open definition vertical split
 nmap <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
@@ -76,6 +88,8 @@ if has("autocmd")
 
   " Enable spell check for md/txt
   autocmd FileType markdown,text setlocal spell
+
+  autocmd FileType go setlocal ts=2 sts=2 sw=2 noexpandtab
 endif
 
 " Get syntax group under cursor
