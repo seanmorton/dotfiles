@@ -11,8 +11,12 @@ set wildignore+=*.swp,*.DS_Store    " Ignore hidden files
 set mouse=a                         " Enable mouse in all modes
 set termguicolors                   " 24-bit colors
 
-" TODO Completion
-" set completeopt=menu,preview,noselect,fuzzy
+" Completion
+set autocomplete
+set autocompletedelay=1000
+set completeopt=menu,menuone,popup,noselect,fuzzy
+set iskeyword+=.
+set omnifunc=ale#completion#OmniFunc
 
 " Appearance
 syntax on                           " Enable syntax highlighting
@@ -74,26 +78,11 @@ if has("autocmd")
   autocmd FileType markdown,text setlocal spell
 endif
 
-" Multipurpose tab key
-" Indent if we're at the beginning of a line. Else, do completion.
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<C-p>"
-    endif
-endfunction
-inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
-inoremap <S-Tab> <C-n>
-
 " Get syntax group under cursor
 nnoremap <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Some settings need to be set before ALE is loaded, so set them all here
 let g:ale_close_preview_on_insert = 1
-let g:ale_completion_delay = 1000
-let g:ale_completion_enabled = 1
 let g:ale_echo_cursor = 0             " don't echo to the message line
 let g:ale_fix_on_save = 1
 let g:ale_floating_preview = 1        " ALEDetail + ALEHover go to floating preview
@@ -101,33 +90,6 @@ let g:ale_floating_window_border = [] " no border
 let g:ale_sign_error='XX'
 let g:ale_sign_warning='!!'
 let g:ale_virtualtext_cursor = 1      " only show on current line not all at once
-
-" https://github.com/golang/tools/blob/master/gopls/doc/settings.md
-let g:ale_go_gopls_init_options = {
-  \ 'build.directoryFilters': [
-    \ '-bazel-bin',
-    \ '-bazel-out',
-    \ '-bazel-testlogs',
-    \ '-bazel-source',
-  \ ],
-\ }
-" https://github.com/bazelbuild/rules_go/blob/master/docs/go/editors/vim.md
-function! MaybeSetGoPackagesDriver()
-  " If in a bazel project directory with a WORKSPACE file,
-  " set GOPACKAGESDRIVER ./tools/gopackagesdriver.sh.
-  let l:dir = getcwd()
-  while l:dir != "/"
-    if filereadable(simplify(join([l:dir, 'WORKSPACE'], '/')))
-      let l:maybe_driver_path = simplify(join([l:dir, 'tools/gopackagesdriver.sh'], '/'))
-      if filereadable(l:maybe_driver_path)
-        let $GOPACKAGESDRIVER = l:maybe_driver_path
-        break
-      end
-    end
-    let l:dir = fnamemodify(l:dir, ':h')
-  endwhile
-endfunction
-call MaybeSetGoPackagesDriver()
 
 au BufRead,BufNewFile *.templ set syntax=go
 
