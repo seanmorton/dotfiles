@@ -9,6 +9,7 @@ git clone https://github.com/joerdav/templ.vim.git
 git clone https://github.com/junegunn/fzf
 git clone https://github.com/junegunn/fzf.vim.git
 git clone https://github.com/ledger/vim-ledger.git
+git clone https://github.com/lifepillar/vim-mucomplete.git
 git clone https://github.com/scrooloose/nerdtree.git
 git clone https://github.com/tpope/vim-fugitive.git
 git clone https://github.com/uiiaoo/java-syntax.vim

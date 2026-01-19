@@ -11,6 +11,9 @@ set wildignore+=*.swp,*.DS_Store    " Ignore hidden files
 set mouse=a                         " Enable mouse in all modes
 set termguicolors                   " 24-bit colors
 
+" TODO Completion
+" set completeopt=menu,preview,noselect,fuzzy
+
 " Appearance
 syntax on                           " Enable syntax highlighting
 set linebreak                       " Wrap at convenient points
