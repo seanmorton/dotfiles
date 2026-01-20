@@ -15,7 +15,6 @@ set termguicolors                   " 24-bit colors
 set autocomplete
 set autocompletedelay=1000
 set completeopt=menu,menuone,popup,noselect,fuzzy
-set iskeyword+=.,:
 set omnifunc=ale#completion#OmniFunc
 
 " Appearance
@@ -26,7 +25,6 @@ set ruler                           " Show row,column numbers
 
 " Searching
 set hlsearch                        " Highlight search results
-set incsearch                       " Highlight as you type
 set ignorecase                      " Ignore case while searching
 set smartcase                       " Unless capital letter specified
 
@@ -68,9 +66,6 @@ map Y y$
 map <C-y> "+y
 map <C-p> "+p
 
-" highlights words matching the word under the cursor with F8
-nnoremap <F8> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
-
 " [ctags] open definition vertical split
 nmap <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 set tags+=gems.tags
@@ -97,13 +92,15 @@ nnoremap <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> 
 
 " Some settings need to be set before ALE is loaded, so set them all here
 let g:ale_close_preview_on_insert = 1
-let g:ale_echo_cursor = 0             " don't echo to the message line
+let g:ale_echo_cursor = 0                 " don't echo to the message line
 let g:ale_fix_on_save = 1
-let g:ale_floating_preview = 1        " ALEDetail + ALEHover go to floating preview
-let g:ale_floating_window_border = [] " no border
+let g:ale_floating_preview = 1            " ALEDetail + ALEHover go to floating preview
+let g:ale_floating_window_border = []     " no border
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_text_changed = 'normal' " Don't lint while typing
 let g:ale_sign_error='XX'
 let g:ale_sign_warning='!!'
-let g:ale_virtualtext_cursor = 1      " only show on current line not all at once
+let g:ale_virtualtext_cursor = 1          " only show on current line not all at once
 
 au BufRead,BufNewFile *.templ set syntax=go
 
