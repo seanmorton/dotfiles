@@ -12,8 +12,6 @@ set mouse=a                         " Enable mouse in all modes
 set termguicolors                   " 24-bit colors
 
 " Completion
-set autocomplete
-set autocompletedelay=1000
 set completeopt=menu,menuone,popup,noselect,fuzzy
 set omnifunc=ale#completion#OmniFunc
 
@@ -160,3 +158,6 @@ execute pathogen#infect()
 
   " vim-go-syntax
   let g:go_highlight_function_calls = 0
+
+  " vim-mucomplete
+  let g:mucomplete#minimum_prefix_length = 0
