@@ -1,5 +1,4 @@
 " Config
-set autoread                        " Reload externally edited files
 set encoding=utf-8                  " For the wurldz
 set nocompatible                    " Use vim rather than vi settings
 set nofoldenable                    " disable folding
