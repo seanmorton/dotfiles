@@ -5,7 +5,6 @@ set nocompatible                    " Use vim rather than vi settings
 set nofoldenable                    " disable folding
 set pastetoggle=<F10>               " Enable past insert mode with F10
 set scrolloff=5                     " Display at least 5 lines above and below the cursor
-set splitright                      " Open splits as a right pane
 set splitbelow                      " Open splits as a bottom pane
 set t_ut=                           " Disable background color erase for tmux/screen
 set wildignore+=*.swp,*.DS_Store    " Ignore hidden files
@@ -82,6 +81,8 @@ if has("autocmd")
 
   " Enable spell check for md/txt
   autocmd FileType markdown,text setlocal spell
+
+  autocmd BufRead,BufNewFile *.templ set filetype=html
 
   autocmd FileType go setlocal ts=2 sts=2 sw=2 noexpandtab
 endif
@@ -161,4 +162,4 @@ execute pathogen#infect()
   let g:go_highlight_function_calls = 0
 
   " vim-mucomplete
-  let g:mucomplete#minimum_prefix_length = 0
+  let g:mucomplete#minimum_prefix_length = 2
