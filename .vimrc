@@ -78,9 +78,6 @@ if has("autocmd")
   " Always start on the first line of commit files
   autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
 
-  " Enable spell check for md/txt
-  autocmd FileType markdown,text setlocal spell
-
   autocmd BufRead,BufNewFile *.templ set filetype=html
 
   autocmd FileType go setlocal ts=2 sts=2 sw=2 noexpandtab
