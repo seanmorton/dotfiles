@@ -17,6 +17,7 @@ set omnifunc=ale#completion#OmniFunc
 " Appearance
 syntax on                           " Enable syntax highlighting
 set linebreak                       " Wrap at convenient points
+set nowrap                          " No line wrapping by default
 set number relativenumber           " 'Hybrid' line numbers
 set ruler                           " Show row,column numbers
 
