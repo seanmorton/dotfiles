@@ -62,6 +62,13 @@
             "type": "remainingProfiles"
         }
     ],
+    "profiles":
+    {
+        "defaults": {
+          "cursorShape": "filledBox"
+        },
+				"list": []
+		},
     "schemes": [],
     "showTabsInTitlebar": true,
     "themes": [],
