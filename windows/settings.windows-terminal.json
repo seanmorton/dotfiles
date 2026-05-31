@@ -65,6 +65,7 @@
     "profiles":
     {
         "defaults": {
+          "bellStyle": "none",
           "cursorShape": "filledBox"
         },
 				"list": []
