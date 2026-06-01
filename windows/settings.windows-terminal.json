@@ -65,8 +65,13 @@
     "profiles":
     {
         "defaults": {
-          "bellStyle": "none",
-          "cursorShape": "filledBox"
+            "bellStyle": "none",
+            "cursorShape": "filledBox",
+            "font":
+            {
+                "face": "Consolas"
+            },
+            "startingDirectory": "~"
         },
 				"list": []
 		},
