@@ -1,10 +1,14 @@
 [core]
-	excludesfile = /Users/seanmorton/.gitignore
+  excludesfile = /Users/seanmorton/.gitignore
 [push]
   autoSetupRemote = true
 [gpg]
-	format = ssh
+  format = ssh
 [commit]
-	gpgsign = true
+  gpgsign = true
 [rebase]
-	autosquash = true
+  autosquash = true
+[user]
+  name = "Sean Morton"
+  email = EMAIL
+  signingkey = PATH
