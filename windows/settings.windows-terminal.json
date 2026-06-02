@@ -64,12 +64,15 @@
     ],
     "profiles":
     {
-        "defaults": {
+        "defaults":
+        {
             "bellStyle": "none",
+            "colorScheme": "Dark+",
             "cursorShape": "filledBox",
             "font":
             {
-                "face": "Consolas"
+                "face": "Consolas",
+                "size": 14
             },
             "startingDirectory": "~"
         },
