@@ -1,12 +1,10 @@
-# man zshparam
+# man zshparam; man zshoptions
 export HISTFILE=~/.histfile
-export HISTSIZE=10000
-export SAVEHIST=10000
-# man zshoptions
-setopt SHARE_HISTORY
+export HISTSIZE=50000
+export SAVEHIST=50000
 setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
+setopt INC_APPEND_HISTORY
 
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/go/bin"
