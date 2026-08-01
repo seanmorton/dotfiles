@@ -41,6 +41,9 @@ set undodir=~/.vim/undo
 set undolevels=500
 set undoreload=500
 
+filetype plugin indent on
+colorscheme Tomorrow-Night-Eighties
+
 " Configure FZF
 set rtp+=/opt/homebrew/bin/fzf
 let g:fzf_layout = { 'down': '30%' }
@@ -84,6 +87,21 @@ if has("autocmd")
   autocmd FileType go setlocal ts=2 sts=2 sw=2 noexpandtab
 endif
 
+" Trigger omnicomplete with tab; and tab through menu
+" https://vim.fandom.com/wiki/Smart_mapping_for_tab_completion
+function! SmartTab()
+    if pumvisible()
+        return "\<C-n>"
+    endif
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] =~? '\w\|\.'
+        return "\<C-x>\<C-o>"
+    endif
+    return "\<Tab>"
+endfunction
+inoremap <expr> <Tab> SmartTab()
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 " Get syntax group under cursor
 nnoremap <F11> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
@@ -104,9 +122,6 @@ au BufRead,BufNewFile *.templ set syntax=go
 " Pathogen plugin manager
 " https://github.com/tpope/vim-pathogen
 execute pathogen#infect()
-  filetype plugin indent on
-  colorscheme Tomorrow-Night-Eighties
-
   " NERDTree
   map <C-b> :NERDTreeToggle %<CR>
   let NERDTreeShowHidden=1
@@ -157,6 +172,3 @@ execute pathogen#infect()
 
   " vim-go-syntax
   let g:go_highlight_function_calls = 0
-
-  " vim-mucomplete
-  let g:mucomplete#minimum_prefix_length = 2
