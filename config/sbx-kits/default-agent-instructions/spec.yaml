@@ -1,0 +1,4 @@
+schemaVersion: "2"
+kind: mixin
+name: default-agent-instructions
+description: 'Default instructions for sandboxed agents that always apply'
