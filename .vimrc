@@ -87,19 +87,21 @@ if has("autocmd")
   autocmd FileType go setlocal ts=2 sts=2 sw=2 noexpandtab
 endif
 
-" Trigger omnicomplete with tab; and tab through menu
+" Trigger completion with tab; then tab through menu
 " https://vim.fandom.com/wiki/Smart_mapping_for_tab_completion
-function! SmartTab()
-    if pumvisible()
-        return "\<C-n>"
-    endif
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] =~? '\w\|\.'
-        return "\<C-x>\<C-o>"
-    endif
+function! CleverTab()
+  if pumvisible()
+    return "\<C-n>"
+  endif
+  if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
     return "\<Tab>"
+  elseif exists('&omnifunc') && &omnifunc != ''
+    return "\<C-x>\<C-o>"
+  else
+    return "\<C-n>"
+  endif
 endfunction
-inoremap <expr> <Tab> SmartTab()
+inoremap <expr> <Tab> CleverTab()
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Get syntax group under cursor
