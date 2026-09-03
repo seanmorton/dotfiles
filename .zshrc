@@ -71,6 +71,16 @@ alias tf="terraform "
 alias todo="vim ~/TODO"
 alias gdiff="git tui diff"
 alias yess='yq -C eval-all | less -R'
+alias node_workloads='kubectl get pods -A -o json \
+  | jq -r '\''.items[]
+        | select((([.metadata.ownerReferences[]?.kind] | index("DaemonSet") | not))
+            and (.metadata.namespace != "kube-system"))
+        | [.spec.nodeName, .metadata.namespace, .metadata.name,
+           (.metadata.ownerReferences[0].kind // "none"), .status.phase]
+        | @tsv'\'' \
+  | sort'
+alias node_workloadss="kubectl get pods -A -o custom-columns='NODE:.spec.nodeName,NAMESPACE:.metadata.namespace,POD:.metadata.name,STATUS:.status.phase' \
+  --sort-by='.spec.nodeName'"
 
 # setup completion
 fpath=(~/.zsh/completion $fpath)
@@ -93,6 +103,14 @@ function csvcat {
 function awsctx() {
   export AWS_PROFILE="$(aws configure list-profiles | fzf)"
   echo "Switched to profile ""$AWS_PROFILE""."
+}
+# https://github.com/will133/vim-dirdiff
+function dirdiff()
+{
+    # Shell-escape each path:
+    DIR1=$(printf '%q' "$1"); shift
+    DIR2=$(printf '%q' "$1"); shift
+    vim $@ -c "DirDiff $DIR1 $DIR2"
 }
 
 # completion
