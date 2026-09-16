@@ -33,8 +33,8 @@ autoload -U colors && colors
 PROMPT="%{$fg[magenta]%}% [%{$reset_color%}% %1d%{$fg[magenta]%}% |%{$reset_color%}% %D{%H:%M:%S}%{$fg[magenta]%}% ] %{$reset_color%}% %{$fg[cyan]%}% $ %{$reset_color%}%"
 RPROMPT=\$vcs_info_msg_0_
 
+# vim mode
 bindkey -v
-bindkey '^r' history-incremental-search-backward
 
 # git
 alias g="git "
@@ -82,18 +82,21 @@ alias node_workloads='kubectl get pods -A -o json \
 alias node_workloadss="kubectl get pods -A -o custom-columns='NODE:.spec.nodeName,NAMESPACE:.metadata.namespace,POD:.metadata.name,STATUS:.status.phase' \
   --sort-by='.spec.nodeName'"
 
-# setup completion
-fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit && compinit
-source ~/src/aloxaf/fzf-tab/fzf-tab.plugin.zsh
-zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
-
+# Setup FZF
 # install with $(brew --prefix)/opt/fzf/install
 # ctrl-r: search $HISTFILE
 # ctrl-t: search for a file under cwd
 # alt-c: search for a directory name under cwd, then cd into it
 # ls ~/Downloads/**<TAB>: filename autocomplete
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# setup completion
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+# force zsh not to show completion menu, which allows fzf-tab to capture an unambiguous prefix (no tab tab tab)
+zstyle ':completion:*' menu no
+autoload -Uz compinit && compinit
+source ~/src/aloxaf/fzf-tab/fzf-tab.plugin.zsh # This must be after fzf.zsh in order to take over bindkey '^I'
+
 
 # utilities
 function csvcat {
