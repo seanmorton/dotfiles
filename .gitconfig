@@ -12,3 +12,5 @@
   name = "Sean Morton"
   email = EMAIL
   signingkey = PATH
+[diff]
+	tool = vimdiff

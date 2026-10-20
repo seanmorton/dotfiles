@@ -19,6 +19,7 @@ export SOPS_PGP_FP=
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 export DIRENV_LOG_FORMAT=
 export KUBECONFIG="$HOME/.kube/config"
+export KUBE_EDITOR="vim -R"
 
 # git completion and current branch in right prompt
 autoload -Uz vcs_info
