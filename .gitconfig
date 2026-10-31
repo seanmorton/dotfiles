@@ -8,11 +8,11 @@
   gpgsign = true
 [rebase]
   autosquash = true
-[user]
-  name = "Sean Morton"
-  email = EMAIL
-  signingkey = PATH
 [diff]
 	tool = vimdiff
 [difftool]
 	prompt = false
+[user]
+  name = "Sean Morton"
+  email = EMAIL
+  signingkey = PATH/TO/.SSH/KEY.PUB
