@@ -70,6 +70,7 @@ alias pods="watch -n 1 kubectl get pods"
 alias gcp="gcloud "
 alias tf="terraform "
 alias todo="vim ~/TODO"
+alias backlog="vim ~/BACKLOG"
 alias gdiff="git tui diff"
 alias yess='yq -C eval-all | less -R'
 alias node_workloads='kubectl get pods -A -o json \
