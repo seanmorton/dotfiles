@@ -12,6 +12,7 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
+	trustExitCode = true
 [user]
   name = "Sean Morton"
   email = EMAIL
